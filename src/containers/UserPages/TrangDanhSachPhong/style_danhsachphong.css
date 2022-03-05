@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Header */
+header {
+  padding: 0 24px !important;
+}
+
+/* Filter */
+.filter__container {
+  padding: 0 24px !important;
+}
+
+.filter__container button {
+  border: solid black 1px;
+}
+
+.filter__container .vertical__line {
+  width: 1px;
+  height: 30px;
+  background-color: black;
+}
+
+/* Room List */
+.room__list {
+  padding: 0 24px !important;
+}
+
+.list__title {
+  font-weight: 600;
+  padding: 1em 0 0;
+}
+
+.card__container {
+  padding: 1rem;
+}
+
+h5.room__title {
+  /* width: 200px; */
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1rem !important;
+  text-overflow: ellipsis;
+}
+
+.room__price {
+  font-weight: bold;
+}
+
+.room__subtitle {
+  font-size: 0.875rem;
+  color: darkgray;
+}
