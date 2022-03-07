@@ -40,3 +40,17 @@ const actRequestRoomListFail = (error) => {
     payload: error,
   };
 };
+
+export const actAddFilterRoomList = (id) => {
+  return {
+    type: ActionType.ADD_FILTER_ROOM_LIST,
+    payload: id,
+  };
+};
+
+export const actRemoveFilterRoomList = (id) => {
+  return {
+    type: ActionType.REMOVE_FILTER_ROOM_LIST,
+    payload: id,
+  };
+};

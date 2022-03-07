@@ -10,29 +10,34 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
 export default function TrangDanhSachPhong() {
-  const LOCATION_ID = "616953dfefe193001c0a5b4e";
+  const locationID = "616953dfefe193001c0a5b4e";
   // const loading = useSelector((state) => state.roomListReducer.loading);
   const data = useSelector((state) => state.roomListReducer.data);
+  
   const dispatch = useDispatch();
 
+  // Call API
   useEffect(() => {
-    dispatch(actFetchRoomList(LOCATION_ID));
-  }, [dispatch]);
+    dispatch(actFetchRoomList(locationID));
+  }, []);
 
   // Pagination
   const [page, setPage] = useState(1);
+  const [renderedData, setData] = useState(null);
   const itemsPerPage = 10;
   let count = 1;
   if (data) count = Math.ceil(data.length / itemsPerPage);
-  let startItem = (page - 1) * itemsPerPage;
-  let endItem = startItem + itemsPerPage;
-
-  let roomList = data?.slice(startItem, endItem);
 
   const handleChange = (event, newPage) => {
     //Value is new page
     setPage(newPage);
   };
+
+  useEffect(() => {
+    let startItem = (page - 1) * itemsPerPage;
+    let endItem = startItem + itemsPerPage;
+    setData(data?.slice(startItem, endItem));
+  }, [page, data]);
   // End Pagination
 
   return (
@@ -41,7 +46,7 @@ export default function TrangDanhSachPhong() {
         <Navbar></Navbar>
         <Filters></Filters>
       </header>
-      <RoomList roomList={roomList}></RoomList>
+      <RoomList roomList={renderedData} roomQuantity={data?.length}></RoomList>
 
       {/* Pagination */}
       <div className="d-flex justify-content-center">
