@@ -1,0 +1,5 @@
+export const REQUEST_ROOM_REVIEW = "@TrangChiTietPhong/REQUEST_ROOM_REVIEW";
+export const REQUEST_ROOM_REVIEW_SUCCESS =
+  "@TrangChiTietPhong/REQUEST_ROOM_REVIEW_SUCCESS";
+export const REQUEST_ROOM_REVIEW_ERROR =
+  "@TrangChiTietPhong/REQUEST_ROOM_REVIEW_ERROR";

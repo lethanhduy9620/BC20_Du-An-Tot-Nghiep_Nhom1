@@ -1,0 +1,160 @@
+@import "./../TrangDanhSachPhong/style_danhsachphong.css";
+
+body {
+  /* background-color: black !important; */
+}
+
+/* Carousel Container */
+.carousel__container {
+  padding: 0px !important;
+}
+
+.pictures__container {
+  height: 400px;
+  overflow: hidden;
+}
+
+.pictures__container img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+}
+
+/* Customize slick carousel */
+#carousel__container .slick-active {
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+}
+
+#carousel__container div.slick-active.slick-current {
+  padding-left: 0px;
+}
+
+#carousel__container .slick-active.slick-current + div.slick-active {
+  padding-right: 0;
+}
+
+#carousel__container button.slick-next,
+#carousel__container button.slick-prev {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex !important ;
+  justify-content: center;
+  align-items: center;
+}
+
+#carousel__container button.slick-prev::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f104";
+}
+
+#carousel__container button.slick-next::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f105";
+}
+
+#carousel__container button.slick-next::before,
+#carousel__container button.slick-prev::before {
+  font-size: 20px;
+  color: white;
+}
+
+#carousel__container button.slick-arrow.slick-prev {
+  left: 1%;
+  z-index: 999;
+}
+
+#carousel__container button.slick-arrow.slick-next {
+  right: 1%;
+  z-index: 999;
+}
+
+/* Room Info */
+#roomInfo {
+  font-weight: 400;
+}
+
+#roomInfo.roomInfo__container {
+  padding: 40px 24px !important;
+  margin: 0 !important;
+}
+
+#roomInfo .title {
+  font-weight: 800;
+}
+
+#roomInfo .location__desc {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+#roomInfo .room__quantity span {
+  font-size: 1rem;
+}
+
+.room__utilities {
+  min-width: 560px;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+#roomInfo .booking__form {
+  max-width: 380px;
+}
+
+#roomInfo .booking__form,
+#roomInfo .time__input,
+#roomInfo .guest__input {
+  border: 1px solid black;
+}
+
+#roomInfo .price__container .price {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+#roomInfo .total__price {
+  font-weight: 700;
+}
+
+#roomInfo .booking__form {
+  position: sticky;
+  top: 70px;
+}
+
+/* Room Review */
+#roomReview.roomReview__container {
+  padding: 40px 24px !important;
+}
+
+#roomReview .title {
+  font-weight: 800;
+}
+
+#roomReview .review__header img {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+#roomReview .review__header .name {
+  font-weight: 600;
+}
+
+#roomReview .review__card:nth-child(even) {
+  padding-left: 2rem;
+}
+
+#roomReview .review__card:nth-child(odd) {
+  padding-right: 2rem;
+}

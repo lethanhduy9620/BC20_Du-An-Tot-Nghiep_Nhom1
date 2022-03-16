@@ -1,5 +1,6 @@
 import TrangHome from "../containers/UserPages/TrangHome";
 import TrangDanhSachPhong from "../containers/UserPages/TrangDanhSachPhong";
+import TrangChiTietPhong from "../containers/UserPages/TrangChiTietPhong";
 import { Route } from "react-router";
 
 const routesHome = [
@@ -9,9 +10,14 @@ const routesHome = [
     component: TrangHome,
   },
   {
-    exact: true,
+    exact: false,
     path: "/danh-sach-phong",
     component: TrangDanhSachPhong,
+  },
+  {
+    exact: false,
+    path: "/chi-tiet-phong/:id",
+    component: TrangChiTietPhong,
   },
 ];
 

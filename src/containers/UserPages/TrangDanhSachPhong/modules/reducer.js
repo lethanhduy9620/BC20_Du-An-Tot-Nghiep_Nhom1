@@ -3,7 +3,7 @@ import * as ActionType from "./constants";
 let initialState = {
   loading: false,
   originalData: null, //Data from server
-  data: null, //filteredData
+  data: null, // Data after being filtered
   error: null,
   conditionList: [
     { id: "elevator", value: "Thang Máy", isSelected: false },
