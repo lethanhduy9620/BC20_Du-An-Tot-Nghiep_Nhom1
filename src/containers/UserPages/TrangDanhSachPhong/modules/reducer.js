@@ -42,8 +42,8 @@ const roomListReducer = (state = initialState, action) => {
       state.loading = true;
       state.data = null;
       state.error = null;
+      state.originalData = null;
       state.filterArray = [];
-      state.filteredData = [];
       return { ...state };
     case ActionType.REQUEST_ROOM_LIST_SUCCESS: {
       // *Version: 1

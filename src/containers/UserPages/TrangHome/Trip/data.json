@@ -1,22 +1,22 @@
 [
-    {
-        "key":"61c5df62d1aba6001cf0cbfc",
-        "ten": "Thành Phố Hồ Chí Minh",
-        "hinhAnh": "/img/location1.jpg"
-    },
-    {
-        "key":"61cde1e2fee2fc001ccf74e7",
-        "ten": "Hà Nội",
-        "hinhAnh": "/img/location2.jpg"
-    },
-    {
-        "key":"61695437efe193001c0a5b51",
-        "ten": "Đà Nẵng",
-        "hinhAnh": "/img/location3.jpg"
-    },
-    {
-        "key":"616953dfefe193001c0a5b4e",
-        "ten": "Phú Quốc",
-        "hinhAnh": "/img/location4.jpg"
-    }
+  {
+    "key": "617f80c5df826c001ce750c9",
+    "ten": "Hà Nội",
+    "hinhAnh": "/img/location1.jpg"
+  },
+  {
+    "key": "616952c3efe193001c0a5b46",
+    "ten": "Cần Thơ",
+    "hinhAnh": "/img/location2.jpg"
+  },
+  {
+    "key": "62033302fee2fc001cd7a382",
+    "ten": "Huế",
+    "hinhAnh": "/img/location3.jpg"
+  },
+  {
+    "key": "616953dfefe193001c0a5b4e",
+    "ten": "Phú Quốc",
+    "hinhAnh": "/img/location4.jpg"
+  }
 ]

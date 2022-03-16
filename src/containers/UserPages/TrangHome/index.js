@@ -10,7 +10,7 @@ export default function TrangHome() {
     <div>
       <HomeNav />
       <Carousel />
-      <Trip/>
+      <Trip />
       <Discover />
       <Shop />
       <Footer />
