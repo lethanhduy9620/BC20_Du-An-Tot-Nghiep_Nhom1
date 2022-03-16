@@ -15,7 +15,7 @@ export const actFetchRoomList = (locationID) => {
         // console.log(result.data);
       })
       .catch((error) => {
-        dispatch(actRequestRoomListFail());
+        dispatch(actRequestRoomListFail(error));
         // console.log(error);
       });
   };
