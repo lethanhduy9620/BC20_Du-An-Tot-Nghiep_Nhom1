@@ -1,0 +1,60 @@
+.homenav{
+    color: white;
+}
+.homenav .top-navlink{
+    color: white;
+}
+.homenav .nav-pills .nav-link.active{
+    background-color: transparent;
+    position: relative;
+}
+.homenav .nav-pills .nav-link.active::after{
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 3px;
+    background-color: white;
+    left: 30px;
+    bottom: 0;
+}
+.homenav .nav-content{
+    background-color: white;
+    color: black;
+    border-radius: 50px;
+}
+.homenav .bottom-navlink{
+    color: black;
+    padding: 0;
+    padding-top: 5px;
+    font-weight: bold;
+}
+.homenav .nav-flex{
+    display: flex;
+    justify-content: space-around;
+}
+.homenav .nav-flex2{
+    display: flex;
+    justify-content: space-evenly;
+}
+.user {
+    color: #717171;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.user-active{
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    background-color: white;
+    padding: 20px;
+    color: black;
+    border-radius: 10px;
+    display: none;
+}
+.user-active a{
+    display: block;
+    margin-bottom: 10px;
+}
