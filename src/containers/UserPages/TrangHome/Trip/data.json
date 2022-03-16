@@ -2,25 +2,21 @@
     {
         "key":"61c5df62d1aba6001cf0cbfc",
         "ten": "Thành Phố Hồ Chí Minh",
-        "hinhAnh": "",
-        "loacation":""
+        "hinhAnh": "/img/location1.jpg"
     },
     {
         "key":"61cde1e2fee2fc001ccf74e7",
         "ten": "Hà Nội",
-        "hinhAnh": "",
-        "loacation":""
+        "hinhAnh": "/img/location2.jpg"
     },
     {
         "key":"61695437efe193001c0a5b51",
         "ten": "Đà Nẵng",
-        "hinhAnh": "",
-        "loacation":""
+        "hinhAnh": "/img/location3.jpg"
     },
     {
         "key":"616953dfefe193001c0a5b4e",
         "ten": "Phú Quốc",
-        "hinhAnh": "",
-        "loacation":""
+        "hinhAnh": "/img/location4.jpg"
     }
 ]

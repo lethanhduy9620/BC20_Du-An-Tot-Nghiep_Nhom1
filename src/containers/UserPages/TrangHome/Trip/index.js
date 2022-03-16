@@ -5,8 +5,7 @@ export default function Trip() {
   const fecthTrip = () => {
     return data.map((trip) => {
       return (
-        <div className="col px-2">
-          
+        <div className="col-3">    
           <Link to={`/danh-sach-phong/${trip.key}`}>
             <div className="card" style={{ width: "18rem" }}>
               <img src={trip.hinhAnh} className="card-img-top" alt="..." />
@@ -21,7 +20,7 @@ export default function Trip() {
   };
   return (
     <div className="container">
-      <div className="row row-cols-4">{fecthTrip()}</div>
+      <div className="row">{fecthTrip()}</div>
     </div>
   );
 }
