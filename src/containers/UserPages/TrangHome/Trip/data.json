@@ -1,0 +1,26 @@
+[
+    {
+        "key":"61c5df62d1aba6001cf0cbfc",
+        "ten": "Thành Phố Hồ Chí Minh",
+        "hinhAnh": "",
+        "loacation":""
+    },
+    {
+        "key":"61cde1e2fee2fc001ccf74e7",
+        "ten": "Hà Nội",
+        "hinhAnh": "",
+        "loacation":""
+    },
+    {
+        "key":"61695437efe193001c0a5b51",
+        "ten": "Đà Nẵng",
+        "hinhAnh": "",
+        "loacation":""
+    },
+    {
+        "key":"616953dfefe193001c0a5b4e",
+        "ten": "Phú Quốc",
+        "hinhAnh": "",
+        "loacation":""
+    }
+]
