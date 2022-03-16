@@ -11,7 +11,7 @@ const routesHome = [
   },
   {
     exact: false,
-    path: "/danh-sach-phong",
+    path: "/danh-sach-phong/:locationID",
     component: TrangDanhSachPhong,
   },
   {
