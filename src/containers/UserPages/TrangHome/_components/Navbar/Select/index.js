@@ -32,6 +32,7 @@ export default function Selected() {
       selected: selected,
     });
   };
+console.log(selected.selected?.value)
   return (
     <div>
       <div className="tab-content nav-content" id="pills-tabContent">
@@ -88,7 +89,7 @@ export default function Selected() {
               <p>Add guests</p>
             </li>
             <li className="nav-item">
-              <Link className="nav-link bottom-navlink mt-2" to={`/danh-sach-phong/${selected.value}`}>
+              <Link className="nav-link bottom-navlink mt-2" to={`/danh-sach-phong/${selected.selected?.value}`}>
                 <SearchIcon />
               </Link>
             </li>
