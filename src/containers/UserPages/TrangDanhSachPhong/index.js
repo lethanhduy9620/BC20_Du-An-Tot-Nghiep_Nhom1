@@ -1,5 +1,11 @@
-import React, { Fragment, useEffect, useState } from "react";
-import Navbar from './_components/Navbar_DSPhong'
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+  useCallBack,
+  useMemo,
+} from "react";
+import Navbar from "./_components/Navbar_DSPhong";
 import Filters from "./_components/Filters";
 import "./style_danhsachphong.css";
 import RoomList from "./_components/RoomList";
@@ -8,18 +14,20 @@ import { useDispatch, useSelector } from "react-redux";
 // Setup Pagination
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import { useParams } from "react-router";
 
-export default function TrangDanhSachPhong() {
-  const locationID = "616953dfefe193001c0a5b4e";
-  // const loading = useSelector((state) => state.roomListReducer.loading);
-  const data = useSelector((state) => state.roomListReducer.data);
-
+export default function TrangDanhSachPhong(props) {
+  // const locationID = "616953dfefe193001c0a5b4e";
+  const { locationID } = useParams();
   const dispatch = useDispatch();
 
   // Call API
   useEffect(() => {
     dispatch(actFetchRoomList(locationID));
   }, []);
+
+  const loading = useSelector((state) => state.roomListReducer.loading);
+  const data = useSelector((state) => state.roomListReducer.data);
 
   // Pagination
   const [page, setPage] = useState(1);
@@ -42,20 +50,18 @@ export default function TrangDanhSachPhong() {
       setData(data?.slice(startItem, endItem));
     }
   }, [page, data]);
-  // End Pagination
 
+  // End Pagination
+  if (loading) return <div>Loading...</div>;
   return (
     <Fragment>
       <header className="container-fluid">
-        <Navbar></Navbar>
-        <Filters></Filters>
+        <Navbar />
+        <Filters />
       </header>
 
       {renderedData?.length !== 0 && (
-        <RoomList
-          roomList={renderedData}
-          roomQuantity={data?.length}
-        ></RoomList>
+        <RoomList roomList={renderedData} roomQuantity={renderedData?.length} />
       )}
 
       {/* Pagination */}
