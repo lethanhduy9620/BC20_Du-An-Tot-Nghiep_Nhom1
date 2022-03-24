@@ -3,7 +3,7 @@ import "./style.css";
 export default function Discover() {
   return (
     <div className='container'>
-        <h3 className='pt-3'>Discover Airbnb Experiences</h3>
+        <h3 className='pt-5'>Discover Airbnb Experiences</h3>
         <div className='row' id='discover-row'>
             <div style={{backgroundImage:'url(./img/Trip.png)'}} className='col-sm-5 discover'>
                 <div className='discover-content'>

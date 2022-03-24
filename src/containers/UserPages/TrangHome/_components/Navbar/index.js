@@ -1,13 +1,12 @@
 import React from "react";
 import "./style.css";
 import LanguageIcon from "@mui/icons-material/Language";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import DehazeIcon from "@mui/icons-material/Dehaze";
-import { useState, useEffect } from "react";
+
 import Logo from "./../../../components/Logo";
 import HamburgerIcon from "./../../../components/Icons/HamburgerIcon";
 import PersonIcon from "./../../../components/Icons/PersonIcon";
 
+import Select from "./Select";
 export default function HomeNav() {
   return (
     <div style={{ backgroundColor: "black" }} className="homenav pb-5">
@@ -96,67 +95,7 @@ export default function HomeNav() {
           </div>
         </div>
         <div className="mx-auto" style={{ width: "800px" }}>
-          <div className="tab-content nav-content" id="pills-tabContent">
-            <div
-              className="tab-pane fade show active"
-              id="pills-home"
-              role="tabpanel"
-              aria-labelledby="pills-home-tab"
-            >
-              <ul className="nav nav-pills nav-flex">
-                <li className="nav-item">
-                  <a className="nav-link bottom-navlink" href="#">
-                    Location
-                  </a>
-                  <p>Where are you going?</p>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link bottom-navlink" href="#">
-                    Check in
-                  </a>
-                  <p>Add dates</p>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link bottom-navlink" href="#">
-                    Check out
-                  </a>
-                  <p>Add dates</p>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link bottom-navlink" href="#">
-                    Guests
-                  </a>
-                  <p>Add guests</p>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link bottom-navlink" href="#">
-                    search
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="pills-profile"
-              role="tabpanel"
-              aria-labelledby="pills-profile-tab"
-            >
-              <ul className="nav nav-pills nav-flex2">
-                <li className="nav-item">
-                  <a className="nav-link bottom-navlink" href="#">
-                    Location
-                  </a>
-                  <p>Where are you going?</p>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link bottom-navlink" href="#">
-                    Date
-                  </a>
-                  <p>And when you want to go?</p>
-                </li>
-              </ul>
-            </div>
-          </div>
+         <Select/>
         </div>
       </div>
     </div>

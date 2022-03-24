@@ -1,21 +1,21 @@
 [
     {
-        "key":"61c5df62d1aba6001cf0cbfc",
-        "ten": "Thành Phố Hồ Chí Minh",
+        "key":"61698c5fefe193001c0a5baa",
+        "ten": "Nha Trang",
         "hinhAnh": "/img/location1.jpg"
     },
     {
-        "key":"61cde1e2fee2fc001ccf74e7",
-        "ten": "Hà Nội",
+        "key":"616952c3efe193001c0a5b46",
+        "ten": "Cần Thơ",
         "hinhAnh": "/img/location2.jpg"
     },
     {
-        "key":"61695437efe193001c0a5b51",
-        "ten": "Đà Nẵng",
+        "key":"62033302fee2fc001cd7a382",
+        "ten": "Huế",
         "hinhAnh": "/img/location3.jpg"
     },
     {
-        "key":"616953dfefe193001c0a5b4e",
+        "key":"62032e97fee2fc001cd7a33b",
         "ten": "Phú Quốc",
         "hinhAnh": "/img/location4.jpg"
     }
