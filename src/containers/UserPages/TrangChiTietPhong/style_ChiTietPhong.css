@@ -130,6 +130,44 @@ body {
   top: 70px;
 }
 
+#roomInfo .date__input {
+  min-width: 70px;
+}
+
+/* *Customize Date Range Picker */
+#roomInfo .DateRangePicker.DateRangePicker_1 {
+  /* visibility: collapse; */
+  /* height: 0 !important; */
+}
+
+#roomInfo .DateInput.DateInput_1 {
+  display: none;
+}
+
+#roomInfo .DateRangePickerInput_arrow_svg.DateRangePickerInput_arrow_svg_1 {
+  height: 0;
+  width: 0;
+}
+
+.DateRangePickerInput_arrow.DateRangePickerInput_arrow_1 {
+  display: none;
+}
+
+#roomInfo .DateRangePicker_picker.DateRangePicker_picker_1 {
+  top: 1rem !important;
+  /* left: 0 !important; */
+}
+
+#roomInfo .min__width--40 {
+  min-width: 40%;
+}
+
+/*@RoomInfo - Guest Selection  */
+#roomInfo .guest__input .dropdown-menu {
+  top: auto !important;
+  transform: translate3d(0px, 1rem, 0px) !important;
+}
+
 /* Room Review */
 #roomReview.roomReview__container {
   padding: 40px 24px !important;

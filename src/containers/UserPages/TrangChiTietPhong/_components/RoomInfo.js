@@ -1,19 +1,16 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useState } from "react";
 import LocationIcon from "./LocationIcon";
 import RoomReview from "./RoomReview/RoomReview";
-import KitchenIcon from "./../../components/Icons/KitchenIcon";
-import WifiIcon from "./../../components/Icons/WifiIcon";
-import ElevatorIcon from "./../../components/Icons/ElevatorIcon";
-import FireplaceIcon from "./../../components/Icons/FireplaceIcon";
-import HotTubIcon from "./../../components/Icons/HotTubIcon";
-import PoolIcon from "./../../components/Icons/PoolIcon";
-import HeatingIcon from "./../../components/Icons/HeatingIcon";
-import GymIcon from "./../../components/Icons/GymIcon";
-import DryerIcon from "./../../components/Icons/DryerIcon";
-
 import IconList from "./IconList";
 
 import { useSelector } from "react-redux";
+
+// Setup Date Range Picker
+import "react-dates/initialize";
+import { DateRangePicker } from "react-dates";
+import "react-dates/lib/css/_datepicker.css";
+
+import GuestInput from "./GuestInput";
 
 export default function RoomInfo() {
   const roomData = useSelector((state) => state.roomDetailReducer.data);
@@ -23,7 +20,23 @@ export default function RoomInfo() {
       ? "Việt Nam"
       : roomData?.locationId.country;
 
-  const iconListContainer = useRef();
+  // Setup Date Range Picker
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [focusedInput, setFocusedInput] = useState(null);
+  const handleDatesChange = ({ startDate, endDate }) => {
+    setStartDate(startDate);
+    setEndDate(endDate);
+  };
+
+  const renderDate = (reactLibDate) => {
+    let date = new Date(reactLibDate);
+    return (
+      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+    );
+  };
+
+  console.log(renderDate(startDate));
 
   return (
     <Fragment>
@@ -39,7 +52,7 @@ export default function RoomInfo() {
           {/* Location */}
           <div className="location__container d-flex align-items-center mb-3">
             <span className="d-block pr-3">
-              <LocationIcon></LocationIcon>
+              <LocationIcon />
             </span>
             <span className="location__desc d-block">
               {`${roomData?.locationId.name}, ${roomData?.locationId.province}, ${country}`}
@@ -51,7 +64,9 @@ export default function RoomInfo() {
           <div className="room__quantity mb-4">
             <span>{roomData?.bedRoom} Phòng ngủ · </span>
             <span>{roomData?.bath} Phòng tắm · </span>
-            <span>{roomData?.guests} khách</span>
+            <span>
+              {roomData?.guests} khách (Tối đa {roomData?.guests} khách){" "}
+            </span>
 
             {/* <span>2 Phòng ngủ · </span>
             <span>2 Phòng tắm · </span>
@@ -76,7 +91,7 @@ export default function RoomInfo() {
               </p>
             </div>
             <div className="room__utilities row row-cols-2 align-items-center w-90">
-              <IconList roomData={roomData}></IconList>
+              <IconList roomData={roomData} />
 
               {/* <div className="col d-flex my-3">
                 <span className="utility__icon mr-3">
@@ -95,24 +110,72 @@ export default function RoomInfo() {
               <span className="price">2,000,000đ</span>
               <span className="nights">&nbsp; /2 đêm</span>
             </div>
-            <div className="time__input py-2 px-2 d-flex justify-content-around align-items-center mb-3">
-              <div>14/03/2022</div>
-              <div>Đến</div>
-              <div>16/03/2022</div>
+            <div className="input__container">
+              <div className="time__input py-2 px-2 d-flex justify-content-around align-items-center">
+                <div
+                  className="date__input"
+                  onClick={() => setFocusedInput("startDate")}
+                >
+                  {/* 14/03/2022 */}
+                  {startDate == null ? "dd/mm/yyyy" : renderDate(startDate)}
+                </div>
+                <div>Đến</div>
+                <div
+                  className="date__input"
+                  onClick={() => setFocusedInput("endDate")}
+                >
+                  {/* 16/03/2022 */}
+                  {endDate == null ? "dd/mm/yyyy" : renderDate(endDate)}
+                </div>
+              </div>
+
+              {/* DateRangePicker sẽ ẩn phía dưới input__container */}
+              <DateRangePicker
+                startDate={startDate}
+                startDateId="start-date"
+                endDate={endDate}
+                numberOfMonths={2}
+                endDateId="end-date"
+                onDatesChange={handleDatesChange}
+                focusedInput={focusedInput}
+                onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
+                noBorder
+              />
             </div>
-            <div className="guest__input py-2 px-3 mb-3">
-              <div>1 khách</div>
-            </div>
-            <div className="initial__price mb-3 d-flex justify-content-between">
+
+            {/* Guest Selection */}
+            {/* <div className="guest__input py-2 px-4 mb-3 position-relative">
+              <div type="button" data-toggle="modal" data-target="#guestModal">
+                1 khách
+              </div>
+              <div
+                id="guestModal"
+                className="dropdown-menu w-100"
+                aria-labelledby="exampleModalLabel" aria-hidden="true"
+              >
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="item__name">Người lớn</div>
+                  <div className="item__quantity min__width--40 d-flex">
+                    <button className="btn btn-info">-</button>
+                    <span>0</span>
+                    <button className="btn btn-info">+</button>
+                  </div>
+                </div>
+              </div>
+            </div> */}
+
+            <GuestInput maximumGuest={roomData?.guests} />
+
+            <div className="initial__price mb-3 d-flex justify-content-between px-2">
               <p className="mb-0">Giá thuê 2 đêm</p>
               <p className="mb-0">2,000,000đ</p>
             </div>
-            <div className="service__price mb-3 d-flex justify-content-between">
+            <div className="service__price mb-3 d-flex justify-content-between px-2">
               <p className="mb-0">Phí dịch vụ</p>
               <p className="mb-0">200,000đ</p>
             </div>
             <hr></hr>
-            <div className="total__price mt-3 d-flex justify-content-between">
+            <div className="total__price mt-3 d-flex justify-content-between px-2">
               <p className="mb-0">Tổng tiền</p>
               <p className="mb-0">2,200,000đ</p>
             </div>
