@@ -14,7 +14,6 @@ export default function TrangChiTietPhong() {
   const loading = useSelector((state) => state.roomDetailReducer.loading);
 
   useEffect(() => {
-    dispatch(actFetchRoomDetail(ROOM_ID));
     dispatch(actFetchRoomReview(ROOM_ID));
   }, []);
 

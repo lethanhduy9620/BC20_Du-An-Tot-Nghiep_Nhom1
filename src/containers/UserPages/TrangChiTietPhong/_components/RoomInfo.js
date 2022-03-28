@@ -114,6 +114,7 @@ export default function RoomInfo() {
               <div className="time__input py-2 px-2 d-flex justify-content-around align-items-center">
                 <div
                   className="date__input"
+                  type="button"
                   onClick={() => setFocusedInput("startDate")}
                 >
                   {/* 14/03/2022 */}
@@ -122,6 +123,7 @@ export default function RoomInfo() {
                 <div>Đến</div>
                 <div
                   className="date__input"
+                  type="button"
                   onClick={() => setFocusedInput("endDate")}
                 >
                   {/* 16/03/2022 */}
@@ -164,7 +166,7 @@ export default function RoomInfo() {
               </div>
             </div> */}
 
-            <GuestInput maximumGuest={roomData?.guests} />
+            <GuestInput maxGuest ={roomData?.guests} />
 
             <div className="initial__price mb-3 d-flex justify-content-between px-2">
               <p className="mb-0">Giá thuê 2 đêm</p>

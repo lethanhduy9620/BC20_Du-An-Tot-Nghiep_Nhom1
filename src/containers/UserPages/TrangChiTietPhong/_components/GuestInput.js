@@ -1,6 +1,23 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
-export default function GuestInput() {
+export default function GuestInput(props) {
+  const { maxGuest } = props;
+  const [adultNumber, setAdultNumber] = useState(1);
+  const [childNumber, setChildNumber] = useState(0);
+  const [infantNumber, setInfantNumber] = useState(0);
+
+  // const increaseNumber(id){
+  //   switch id {
+  //     case 'adult':
+  //       setAdultNumber(adultNumber+1);
+        
+  //       break;
+    
+  //     default:
+  //       break;
+  //   }
+  // }
+
   return (
     <Fragment>
       <div class="guest__input py-2 px-4 mb-3 position-relative dropdown">

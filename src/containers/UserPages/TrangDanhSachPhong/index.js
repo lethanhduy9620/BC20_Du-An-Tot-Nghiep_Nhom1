@@ -1,10 +1,4 @@
-import React, {
-  Fragment,
-  useEffect,
-  useState,
-  useCallBack,
-  useMemo,
-} from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Navbar from "./_components/Navbar_DSPhong";
 import Filters from "./_components/Filters";
 import "./style_danhsachphong.css";
@@ -19,6 +13,7 @@ import { useParams } from "react-router";
 export default function TrangDanhSachPhong(props) {
   // const locationID = "616953dfefe193001c0a5b4e";
   const { locationID } = useParams();
+
   const dispatch = useDispatch();
 
   // Call API
@@ -31,7 +26,7 @@ export default function TrangDanhSachPhong(props) {
 
   // Pagination
   const [page, setPage] = useState(1);
-  const [renderedData, setData] = useState(null);
+  const [renderedData, setRenderedData] = useState(null);
   const itemsPerPage = 10;
   let count = 1;
   if (data) count = Math.ceil(data.length / itemsPerPage);
@@ -44,10 +39,10 @@ export default function TrangDanhSachPhong(props) {
   useEffect(() => {
     let startItem = (page - 1) * itemsPerPage;
     let endItem = startItem + itemsPerPage;
-    if (data?.slice(startItem, endItem)?.length === 0) {
+    if (data?.slice(startItem, endItem)?.length === 0 && page > 1) {
       setPage(page - 1);
     } else {
-      setData(data?.slice(startItem, endItem));
+      setRenderedData(data?.slice(startItem, endItem));
     }
   }, [page, data]);
 
