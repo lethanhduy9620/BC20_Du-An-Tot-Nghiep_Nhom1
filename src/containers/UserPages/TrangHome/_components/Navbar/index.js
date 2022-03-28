@@ -1,12 +1,12 @@
 import React from "react";
 import "./style.css";
 import LanguageIcon from "@mui/icons-material/Language";
-
+import Login from "../../Login";
 import Logo from "./../../../components/Logo";
 import HamburgerIcon from "./../../../components/Icons/HamburgerIcon";
 import PersonIcon from "./../../../components/Icons/PersonIcon";
-
 import Select from "./Select";
+import { Link } from "react-router-dom";
 export default function HomeNav() {
   return (
     <div style={{ backgroundColor: "black" }} className="homenav pb-5">
@@ -84,18 +84,40 @@ export default function HomeNav() {
                 className="dropdown-menu dropdown-menu--modify"
                 aria-labelledby="dropdownMenuButton"
               >
-                <a className="dropdown-item" href="#/">
-                  Sign Up
-                </a>
-                <a className="dropdown-item" href="#/">
-                  Log In
-                </a>
+                <a classname="dropdown-item">
+  <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    sign up
+  </button>
+  <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div className="modal-body">
+          ...
+        </div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" className="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
+
+                <Link className="dropdown-item" to="/login">
+                  Log in
+                </Link>
               </div>
             </div>
           </div>
         </div>
         <div className="mx-auto" style={{ width: "800px" }}>
-         <Select/>
+          <Select />
         </div>
       </div>
     </div>
