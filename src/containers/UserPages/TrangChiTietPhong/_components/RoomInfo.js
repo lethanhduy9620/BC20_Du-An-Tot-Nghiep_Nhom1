@@ -1,19 +1,19 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useRef } from "react";
 import LocationIcon from "./LocationIcon";
 import RoomReview from "./RoomReview/RoomReview";
 import IconList from "./IconList";
-
+import GuestInput from "./GuestInput";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 // Setup Date Range Picker
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 
-import GuestInput from "./GuestInput";
-
 export default function RoomInfo() {
   const roomData = useSelector((state) => state.roomDetailReducer.data);
+  const history = useHistory();
 
   const country =
     roomData?.locationId.country === "viet nam"
@@ -29,167 +29,242 @@ export default function RoomInfo() {
     setEndDate(endDate);
   };
 
-  const renderDate = (reactLibDate) => {
-    let date = new Date(reactLibDate);
-    return (
-      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
-    );
+  const isShow = () => {
+    if (!startDate || !endDate) {
+      return "d-none";
+    }
+    return "";
   };
 
-  console.log(renderDate(startDate));
+  let bookingDate =
+    startDate && endDate ? endDate.diff(startDate, "days") : undefined;
+
+  const formatPrice = (number) => new Intl.NumberFormat().format(number);
+
+  const formatDateDDMMYY = (momentDate) => momentDate.format("DD/MM/YYYY");
+
+  // Guest Input
+  const [adultNumber, setAdultNumber] = useState(1);
+  const [childNumber, setChildNumber] = useState(0);
+  const [infantNumber, setInfantNumber] = useState(0);
+
+  const increaseNumber = (id) => {
+    switch (id) {
+      case "adult":
+        setAdultNumber(adultNumber + 1);
+        break;
+      case "child":
+        setChildNumber(childNumber + 1);
+        break;
+      case "infant":
+        setInfantNumber(infantNumber + 1);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const decreaseNumber = (id) => {
+    switch (id) {
+      case "adult": {
+        if (adultNumber <= 1) break;
+        setAdultNumber(adultNumber - 1);
+        break;
+      }
+      case "child": {
+        setChildNumber(childNumber - 1);
+        break;
+      }
+      case "infant": {
+        setInfantNumber(infantNumber - 1);
+        break;
+      }
+      default:
+        break;
+    }
+  };
+
+  // DOM to the Date Range Picker
+  const domStartDate = useRef();
+  const domEndDate = useRef();
+
+  const handleBooking = () => {
+    if (!startDate) {
+      domStartDate.current.click();
+    }
+    if (!endDate) {
+      domEndDate.current.click();
+    }
+    let path = `/dat-phong?roomId=${roomData?._id}&checkIn=${formatDateDDMMYY(
+      startDate
+    )}&checkOut=${formatDateDDMMYY(
+      endDate
+    )}&numberAdult=${adultNumber}&numberChild=${childNumber}&numberInfant=${infantNumber}`;
+    history.push(path);
+  };
 
   return (
     <Fragment>
       {/* Room Title */}
-      <div id="roomInfo" className="roomInfo__container container-fluid row">
-        <div className="room__info col-6">
-          {/* Tilte */}
-          <h2 className="title text-break mb-3">
-            {roomData?.name}
-            {/* Green Bay Phu Quoc Resort & Spa */}
-          </h2>
+      <div className="roomInfo__container">
+        <div className="row no-gutters">
+          <div className="room__info col-8">
+            {/* Tilte */}
+            <h2 className="title text-break mb-3">
+              {roomData?.name}
+              {/* Green Bay Phu Quoc Resort & Spa */}
+            </h2>
 
-          {/* Location */}
-          <div className="location__container d-flex align-items-center mb-3">
-            <span className="d-block pr-3">
-              <LocationIcon />
-            </span>
-            <span className="location__desc d-block">
-              {`${roomData?.locationId.name}, ${roomData?.locationId.province}, ${country}`}
-              {/* Đảo Phú Quốc, Phú Quốc, Việt Nam */}
-            </span>
-          </div>
+            {/* Location */}
+            <div className="location__container d-flex align-items-center mb-3">
+              <span className="d-block pr-3">
+                <LocationIcon />
+              </span>
+              <span className="location__desc d-block">
+                {`${roomData?.locationId.name}, ${roomData?.locationId.province}, ${country}`}
+                {/* Đảo Phú Quốc, Phú Quốc, Việt Nam */}
+              </span>
+            </div>
 
-          {/* Room Detail */}
-          <div className="room__quantity mb-4">
-            <span>{roomData?.bedRoom} Phòng ngủ · </span>
-            <span>{roomData?.bath} Phòng tắm · </span>
-            <span>
-              {roomData?.guests} khách (Tối đa {roomData?.guests} khách){" "}
-            </span>
+            {/* Room Detail */}
+            <div className="room__quantity mb-4">
+              <span>{roomData?.bedRoom} Phòng ngủ · </span>
+              <span>{roomData?.bath} Phòng tắm · </span>
+              <span>
+                {roomData?.guests} khách (Tối đa {roomData?.guests} khách){" "}
+              </span>
 
-            {/* <span>2 Phòng ngủ · </span>
+              {/* <span>2 Phòng ngủ · </span>
             <span>2 Phòng tắm · </span>
             <span>5 khách</span> */}
-          </div>
+            </div>
 
-          {/* Room Description */}
-          <div className="room__desc text-break mb-3">
-            <p>{roomData?.description}</p>
-            {/* <p>
+            {/* Room Description */}
+            <div className="room__desc text-break mb-3">
+              <p>{roomData?.description}</p>
+              {/* <p>
               Phòng đẹp, view siêu đẹp, tư vấn và phục vụ tốt, đồ ăn rất ok. Ai
               thích kiểu nghỉ dưỡng, hoà mình cùng thiên nhiên nên tới đây.
             </p> */}
-          </div>
-
-          {/* Room Utility */}
-          <div className="room__utility">
-            <div className="title__container">
-              <h5 className="title">Tiện nghi chỗ ở</h5>
-              <p className="description mt-2">
-                Giới thiệu về các tiện nghi và dịch vụ tại nơi lưu trú
-              </p>
             </div>
-            <div className="room__utilities row row-cols-2 align-items-center w-90">
-              <IconList roomData={roomData} />
 
-              {/* <div className="col d-flex my-3">
+            {/* Room Utility */}
+            <div className="room__utility">
+              <div className="title__container">
+                <h5 className="title">Tiện nghi chỗ ở</h5>
+                <p className="description mt-2">
+                  Giới thiệu về các tiện nghi và dịch vụ tại nơi lưu trú
+                </p>
+              </div>
+              <div className="room__utilities row row-cols-2 align-items-center w-90">
+                <IconList roomData={roomData} />
+
+                {/* <div className="col d-flex my-3">
                 <span className="utility__icon mr-3">
                   <KitchenIcon></KitchenIcon>
                 </span>
                 <span className="utility__desc">Nhà bếp</span>
               </div> */}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Room Booking */}
-        <div className="room__booking col-6">
-          <div className="booking__form p-4">
-            <div className="price__container mb-4">
-              <span className="price">2,000,000đ</span>
-              <span className="nights">&nbsp; /2 đêm</span>
-            </div>
-            <div className="input__container">
-              <div className="time__input py-2 px-2 d-flex justify-content-around align-items-center">
-                <div
-                  className="date__input"
-                  type="button"
-                  onClick={() => setFocusedInput("startDate")}
-                >
-                  {/* 14/03/2022 */}
-                  {startDate == null ? "dd/mm/yyyy" : renderDate(startDate)}
-                </div>
-                <div>Đến</div>
-                <div
-                  className="date__input"
-                  type="button"
-                  onClick={() => setFocusedInput("endDate")}
-                >
-                  {/* 16/03/2022 */}
-                  {endDate == null ? "dd/mm/yyyy" : renderDate(endDate)}
-                </div>
+          {/* Room Booking */}
+          <div className="room__booking col-4">
+            <div className="booking__form p-4">
+              <div className="price__container mb-4">
+                <span className="price">
+                  {formatPrice(roomData?.price) + "đ"}
+                </span>
+                <span className="nights">&nbsp; /đêm</span>
               </div>
-
-              {/* DateRangePicker sẽ ẩn phía dưới input__container */}
-              <DateRangePicker
-                startDate={startDate}
-                startDateId="start-date"
-                endDate={endDate}
-                numberOfMonths={2}
-                endDateId="end-date"
-                onDatesChange={handleDatesChange}
-                focusedInput={focusedInput}
-                onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
-                noBorder
-              />
-            </div>
-
-            {/* Guest Selection */}
-            {/* <div className="guest__input py-2 px-4 mb-3 position-relative">
-              <div type="button" data-toggle="modal" data-target="#guestModal">
-                1 khách
-              </div>
-              <div
-                id="guestModal"
-                className="dropdown-menu w-100"
-                aria-labelledby="exampleModalLabel" aria-hidden="true"
-              >
-                <div className="d-flex justify-content-between align-items-center">
-                  <div className="item__name">Người lớn</div>
-                  <div className="item__quantity min__width--40 d-flex">
-                    <button className="btn btn-info">-</button>
-                    <span>0</span>
-                    <button className="btn btn-info">+</button>
+              <div className="input__container">
+                <div className="time__input py-2 px-2 d-flex justify-content-around align-items-center">
+                  <div
+                    ref={domStartDate}
+                    className="date__input"
+                    type="button"
+                    onClick={() => setFocusedInput("startDate")}
+                  >
+                    {startDate == null
+                      ? "dd/mm/yyyy"
+                      : formatDateDDMMYY(startDate)}
+                  </div>
+                  <div>đến</div>
+                  <div
+                    ref={domEndDate}
+                    className="date__input"
+                    type="button"
+                    onClick={() => setFocusedInput("endDate")}
+                  >
+                    {endDate == null ? "dd/mm/yyyy" : formatDateDDMMYY(endDate)}
                   </div>
                 </div>
+
+                <DateRangePicker
+                  startDate={startDate}
+                  startDateId="start-date"
+                  endDate={endDate}
+                  numberOfMonths={1}
+                  endDateId="end-date"
+                  onDatesChange={handleDatesChange}
+                  focusedInput={focusedInput}
+                  onFocusChange={(focusedInput) =>
+                    setFocusedInput(focusedInput)
+                  }
+                  noBorder
+                />
               </div>
-            </div> */}
 
-            <GuestInput maxGuest ={roomData?.guests} />
+              <GuestInput
+                maxGuest={roomData?.guests}
+                adultNumber={adultNumber}
+                childNumber={childNumber}
+                infantNumber={infantNumber}
+                increaseNumber={increaseNumber}
+                decreaseNumber={decreaseNumber}
+              />
 
-            <div className="initial__price mb-3 d-flex justify-content-between px-2">
-              <p className="mb-0">Giá thuê 2 đêm</p>
-              <p className="mb-0">2,000,000đ</p>
-            </div>
-            <div className="service__price mb-3 d-flex justify-content-between px-2">
-              <p className="mb-0">Phí dịch vụ</p>
-              <p className="mb-0">200,000đ</p>
-            </div>
-            <hr></hr>
-            <div className="total__price mt-3 d-flex justify-content-between px-2">
-              <p className="mb-0">Tổng tiền</p>
-              <p className="mb-0">2,200,000đ</p>
-            </div>
-            <div className="mt-5 text-center">
-              <button className="btn btn-primary">Đặt phòng</button>
+              <div className={`booking__price ${isShow()}`}>
+                <div className="initial__price mb-3 d-flex justify-content-between px-2">
+                  <p className="mb-0">Giá thuê {bookingDate} đêm</p>
+                  <p className="mb-0">
+                    {formatPrice(
+                      Number(bookingDate) * Number(roomData?.price)
+                    ) + "đ"}
+                  </p>
+                </div>
+
+                <div className="service__price mb-3 d-flex justify-content-between px-2">
+                  <p className="mb-0">Phí dịch vụ</p>
+                  <p className="mb-0">
+                    {formatPrice(
+                      Number(bookingDate) * Number(roomData?.price) * 0.1
+                    ) + "đ"}
+                  </p>
+                </div>
+                <hr></hr>
+                <div className="total__price mt-3 d-flex justify-content-between px-2">
+                  <p className="mb-0">Tổng tiền</p>
+                  <p className="mb-0">
+                    {formatPrice(
+                      Number(bookingDate) * Number(roomData?.price) * 1.1
+                    ) + "đ"}
+                  </p>
+                </div>
+                <div className="mt-5 text-center">
+                  <button className="btn btn-primary" onClick={handleBooking}>
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Room Review */}
-      <RoomReview></RoomReview>
+      <RoomReview />
     </Fragment>
   );
 }

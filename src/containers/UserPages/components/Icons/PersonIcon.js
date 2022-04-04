@@ -9,8 +9,8 @@ export default function PersonIcon() {
       role="presentation"
       focusable="false"
       style={{
-        height: 32,
-        width: 32,
+        height: "1.75rem",
+        width: "1.75rem",
         color: "#FFF",
       }}
     >

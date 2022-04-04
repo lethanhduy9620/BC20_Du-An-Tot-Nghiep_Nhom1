@@ -1,7 +1,7 @@
 @import "./../TrangDanhSachPhong/style_danhsachphong.css";
 
-body {
-  /* background-color: black !important; */
+#roomDetailPage header .navbar .input-area {
+  display: none;
 }
 
 /* Carousel Container */
@@ -76,25 +76,32 @@ body {
 }
 
 /* Room Info */
-#roomInfo {
+#roomDetailPage {
   font-weight: 400;
 }
 
-#roomInfo.roomInfo__container {
-  padding: 40px 24px !important;
-  margin: 0 !important;
+#roomDetailPage header {
+  position: unset;
 }
 
-#roomInfo .title {
+#roomDetailPage .roomInfo__container {
+  padding: 2.5rem 7.5rem;
+}
+
+#roomDetailPage .roomInfo__container .room__info {
+  padding-right: 4rem;
+}
+
+#roomDetailPage .title {
   font-weight: 800;
 }
 
-#roomInfo .location__desc {
+#roomDetailPage .location__desc {
   font-size: 1.125rem;
   font-weight: 600;
 }
 
-#roomInfo .room__quantity span {
+#roomDetailPage .room__quantity span {
   font-size: 1rem;
 }
 
@@ -106,45 +113,47 @@ body {
   width: 90% !important;
 }
 
-#roomInfo .booking__form {
+#roomDetailPage .booking__form {
   max-width: 380px;
 }
 
-#roomInfo .booking__form,
-#roomInfo .time__input,
-#roomInfo .guest__input {
-  border: 1px solid black;
+#roomDetailPage .booking__form,
+#roomDetailPage .time__input,
+#roomDetailPage .guest__input {
+  border: 1px solid rgb(172, 172, 172);
+  border-radius: 0.375rem;
 }
 
-#roomInfo .price__container .price {
+#roomDetailPage .price__container .price {
   font-weight: 700;
   font-size: 2rem;
 }
 
-#roomInfo .total__price {
+#roomDetailPage .total__price {
   font-weight: 700;
 }
 
-#roomInfo .booking__form {
+#roomDetailPage .booking__form {
   position: sticky;
   top: 70px;
 }
 
-#roomInfo .date__input {
+#roomDetailPage .date__input {
   min-width: 70px;
 }
 
 /* *Customize Date Range Picker */
-#roomInfo .DateRangePicker.DateRangePicker_1 {
-  /* visibility: collapse; */
-  /* height: 0 !important; */
-}
+/* #roomDetailPage .DateRangePicker.DateRangePicker_1 {
+  visibility: collapse;
+  height: 0 !important;
+} */
 
-#roomInfo .DateInput.DateInput_1 {
+#roomDetailPage .DateInput.DateInput_1 {
   display: none;
 }
 
-#roomInfo .DateRangePickerInput_arrow_svg.DateRangePickerInput_arrow_svg_1 {
+#roomDetailPage
+  .DateRangePickerInput_arrow_svg.DateRangePickerInput_arrow_svg_1 {
   height: 0;
   width: 0;
 }
@@ -153,31 +162,33 @@ body {
   display: none;
 }
 
-#roomInfo .DateRangePicker_picker.DateRangePicker_picker_1 {
+#roomDetailPage .DateRangePicker_picker.DateRangePicker_picker_1 {
   top: 1rem !important;
   /* left: 0 !important; */
 }
 
-#roomInfo .min__width--40 {
+#roomDetailPage .min__width--40 {
   min-width: 40%;
 }
 
 /*@RoomInfo - Guest Selection  */
-#roomInfo .guest__input .dropdown-menu {
+#roomDetailPage .guest__input .dropdown-menu {
   top: auto !important;
   transform: translate3d(0px, 1rem, 0px) !important;
+  box-shadow: 0 0 10px 2px #cacccd !important;
+  border-radius: 0.375rem;
 }
 
 /* Room Review */
-#roomReview.roomReview__container {
-  padding: 40px 24px !important;
+#roomDetailPage .roomReview__container {
+  padding: 0rem 7.5rem;
 }
 
-#roomReview .title {
+#roomDetailPage .title {
   font-weight: 800;
 }
 
-#roomReview .review__header img {
+#roomDetailPage .review__header img {
   width: 60px;
   height: 60px;
   border-radius: 60px;
@@ -185,14 +196,14 @@ body {
   object-position: bottom;
 }
 
-#roomReview .review__header .name {
+#roomDetailPage .review__header .name {
   font-weight: 600;
 }
 
-#roomReview .review__card:nth-child(even) {
+#roomDetailPage .review__card:nth-child(even) {
   padding-left: 2rem;
 }
 
-#roomReview .review__card:nth-child(odd) {
+#roomDetailPage .review__card:nth-child(odd) {
   padding-right: 2rem;
 }

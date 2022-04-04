@@ -40,7 +40,7 @@ export default function Filters() {
       return (
         <button
           key={condition.id}
-          className="btn btn-light filter__item"
+          className="btn btn__filter shadow-none"
           data-toggle="button"
           aria-pressed={condition.isSelected}
           onClick={() => handleOnClick(condition.id)}
@@ -52,18 +52,23 @@ export default function Filters() {
   };
 
   return (
-    <div className="filter__container row justify-content-between align-items-center">
-      <button className="btn btn-light filter__item">
-        Price <i className="fa fa-angle-down" />
-      </button>
-      <button className="btn btn-light filter__item">
-        Type of place <i className="fa fa-angle-down" />
-      </button>
-      <div className="vertical__line" />
-      {renderConditionList()}
-      <button className="btn btn-light filter__button">
-        <i className="fa fa-list-ul" /> Filters
-      </button>
+    <div className="container-fluid filter__container">
+      <div className="row no-gutters justify-content-between align-items-center ">
+        <div className="price__container">
+          <select className="price__selection">
+            <option>Giá tăng dần</option>
+            <option>Giá giảm dần</option>
+          </select>
+          <i class="fa fa-angle-down" />
+        </div>
+        <div className="vertical__line" />
+        <div className="row no-gutters filterBtn__container justify-content-between">
+          {renderConditionList()}
+        </div>
+        <button className="btn btn-light filter__button d-xl-none ">
+          <i className="fa fa-list-ul" /> Filters
+        </button>
+      </div>
     </div>
   );
 }

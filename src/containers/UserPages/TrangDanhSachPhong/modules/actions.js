@@ -5,7 +5,6 @@ export const actFetchRoomList = (locationID) => {
   // dispath to Reducer
   return (dispatch) => {
     dispatch(actRequestRoomList());
-    console.log(locationID)
     // Call API
     api
       .get(`rooms?locationId=${locationID}`)

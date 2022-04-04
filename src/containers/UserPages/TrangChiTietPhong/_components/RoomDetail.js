@@ -6,11 +6,8 @@ export default function RoomDetail() {
   return (
     <Fragment>
       {/* Room Carousel */}
-      <RoomCarousel></RoomCarousel>
-
-      <RoomInfo></RoomInfo>
-
-
+      <RoomCarousel />
+      <RoomInfo />
     </Fragment>
   );
 }

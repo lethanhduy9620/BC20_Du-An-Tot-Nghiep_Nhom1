@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="/">
         {/* Logo */}
-        <Logo></Logo>
+        <Logo />
       </a>
 
       <div

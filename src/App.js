@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { renderRoutesHome } from "./routes";
 import PageNotFound from "./containers/PageNotFound";
+
 function App() {
   return (
     <BrowserRouter>

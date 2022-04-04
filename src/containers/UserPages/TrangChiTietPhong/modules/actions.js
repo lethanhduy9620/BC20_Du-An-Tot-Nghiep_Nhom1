@@ -11,7 +11,6 @@ export const actFetchRoomDetail = (roomID) => {
       .get(`rooms/${roomID}`)
       .then((result) => {
         dispatch(actRequestRoomDetailSuccess(result.data));
-        // console.log(result.data);
       })
       .catch((error) => {
         dispatch(actRequestRoomDetailFail(error));

@@ -19,7 +19,7 @@ export default function RoomCard(props) {
             <h5 className="card-title room__title">{name}</h5>
           </a>
           {/* <span className="room__price">{`850,000₫/đêm`}</span> */}
-          <span className="room__price">{`${price}₫/đêm`}</span>
+          <span className="room__price">{`${price}đ /đêm`}</span>
         </div>
       </div>
     </div>

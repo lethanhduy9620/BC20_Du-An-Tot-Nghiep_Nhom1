@@ -1,33 +1,82 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 export default function GuestInput(props) {
-  const { maxGuest } = props;
-  const [adultNumber, setAdultNumber] = useState(1);
-  const [childNumber, setChildNumber] = useState(0);
-  const [infantNumber, setInfantNumber] = useState(0);
+  const {
+    maxGuest,
+    adultNumber,
+    childNumber,
+    infantNumber,
+    increaseNumber,
+    decreaseNumber,
+  } = props;
 
-  // const increaseNumber(id){
-  //   switch id {
-  //     case 'adult':
-  //       setAdultNumber(adultNumber+1);
-        
-  //       break;
-    
-  //     default:
-  //       break;
-  //   }
-  // }
+  const isDisabled = (id, constraint) => {
+    if (maxGuest) {
+      switch (id) {
+        case "adult": {
+          switch (constraint) {
+            case "upper": {
+              if (adultNumber + childNumber >= maxGuest) return true;
+              break;
+            }
+            case "bottom": {
+              if (adultNumber <= 1) return true;
+              break;
+            }
+            default:
+              return false;
+          }
+          break;
+        }
+
+        case "child": {
+          switch (constraint) {
+            case "upper": {
+              if (adultNumber + childNumber >= maxGuest) return true;
+              break;
+            }
+            case "bottom": {
+              if (childNumber <= 0) return true;
+              break;
+            }
+            default:
+              return false;
+          }
+          break;
+        }
+
+        case "infant": {
+          switch (constraint) {
+            case "upper": {
+              if (infantNumber >= 5) return true; //5 is value assumption
+              break;
+            }
+            case "bottom": {
+              if (infantNumber <= 0) return true;
+              break;
+            }
+            default:
+              return false;
+          }
+          break;
+        }
+        default:
+          return false;
+      }
+    }
+  };
 
   return (
     <Fragment>
-      <div class="guest__input py-2 px-4 mb-3 position-relative dropdown">
+      <div className="guest__input py-2 px-4 mb-3 position-relative dropdown">
         <div
           type="button"
           id="guestDropdown"
           data-toggle="dropdown"
           aria-expanded="false"
         >
-          1 khách
+          {adultNumber + childNumber} khách
+          {infantNumber > 0 && `, ${infantNumber} trẻ sơ sinh`}
         </div>
 
         <div
@@ -44,13 +93,27 @@ export default function GuestInput(props) {
                 <span>Người lớn</span>
               </div>
               <div className="item__quantity min__width--40 d-flex justify-content-between align-items-center">
-                <div type="button" className="btn btn-info">
+                <button
+                  type="button"
+                  className="btn btn-info"
+                  disabled={isDisabled("adult", "bottom")}
+                  onClick={() => {
+                    decreaseNumber("adult");
+                  }}
+                >
                   -
-                </div>
-                <span>0</span>
-                <div type="button" className="btn btn-info">
+                </button>
+                <span>{adultNumber}</span>
+                <button
+                  type="button"
+                  className="btn btn-info"
+                  disabled={isDisabled("adult", "upper")}
+                  onClick={() => {
+                    increaseNumber("adult");
+                  }}
+                >
                   +
-                </div>
+                </button>
               </div>
             </div>
 
@@ -64,13 +127,27 @@ export default function GuestInput(props) {
                 <span>2 - 12 tuổi</span>
               </div>
               <div className="item__quantity min__width--40 d-flex justify-content-between align-items-center">
-                <div type="button" className="btn btn-info">
+                <button
+                  type="button"
+                  className="btn btn-info"
+                  disabled={isDisabled("child", "bottom")}
+                  onClick={() => {
+                    decreaseNumber("child");
+                  }}
+                >
                   -
-                </div>
-                <span>0</span>
-                <div type="button" className="btn btn-info">
+                </button>
+                <span>{childNumber}</span>
+                <button
+                  type="button"
+                  className="btn btn-info"
+                  disabled={isDisabled("child", "upper")}
+                  onClick={() => {
+                    increaseNumber("child");
+                  }}
+                >
                   +
-                </div>
+                </button>
               </div>
             </div>
 
@@ -84,13 +161,27 @@ export default function GuestInput(props) {
                 <span>Dưới 2 tuổi</span>
               </div>
               <div className="item__quantity min__width--40 d-flex justify-content-between align-items-center">
-                <div type="button" className="btn btn-info">
+                <button
+                  type="button"
+                  className="btn btn-info"
+                  disabled={isDisabled("infant", "bottom")}
+                  onClick={() => {
+                    decreaseNumber("infant");
+                  }}
+                >
                   -
-                </div>
-                <span>0</span>
-                <div type="button" className="btn btn-info">
+                </button>
+                <span>{infantNumber}</span>
+                <button
+                  type="button"
+                  className="btn btn-info"
+                  disabled={isDisabled("infant", "upper")}
+                  onClick={() => {
+                    increaseNumber("infant");
+                  }}
+                >
                   +
-                </div>
+                </button>
               </div>
             </div>
           </form>

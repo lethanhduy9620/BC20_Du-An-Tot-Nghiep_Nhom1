@@ -2,7 +2,10 @@ import TrangHome from "../containers/UserPages/TrangHome";
 import TrangDanhSachPhong from "../containers/UserPages/TrangDanhSachPhong";
 import TrangChiTietPhong from "../containers/UserPages/TrangChiTietPhong";
 import Login from "../containers/UserPages/TrangHome/Login";
+import TrangDatPhong from "../containers/UserPages/TrangDatPhong";
 import { Route } from "react-router";
+import TrangDatPhongThanhCong from "../containers/UserPages/TrangDatPhong/DatPhongThanhCong";
+import TrangDatPhongLoi from "../containers/UserPages/TrangDatPhong/DatPhongLoi";
 
 const routesHome = [
   {
@@ -21,10 +24,25 @@ const routesHome = [
     component: TrangChiTietPhong,
   },
   {
-    exact:false,
-    path:"/login",
+    exact: false,
+    path: "/login",
     component: Login,
-  }
+  },
+  {
+    exact: false,
+    path: "/dat-phong",
+    component: TrangDatPhong,
+  },
+  {
+    exact: true,
+    path: "/dat-phong-thanh-cong",
+    component: TrangDatPhongThanhCong,
+  },
+  {
+    exact: true,
+    path: "/dat-phong-loi",
+    component: TrangDatPhongLoi,
+  },
 ];
 
 const renderRoutesHome = () => {

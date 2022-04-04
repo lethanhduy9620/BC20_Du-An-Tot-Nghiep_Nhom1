@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import Navbar from "./_components/Navbar_CTPhong";
+import Navbar from "./../TrangDanhSachPhong/_components/Navbar_DSPhong";
 import RoomDetail from "./_components/RoomDetail";
 import "./style_ChiTietPhong.css";
 
@@ -14,18 +14,19 @@ export default function TrangChiTietPhong() {
   const loading = useSelector((state) => state.roomDetailReducer.loading);
 
   useEffect(() => {
+    dispatch(actFetchRoomDetail(ROOM_ID));
     dispatch(actFetchRoomReview(ROOM_ID));
   }, []);
 
   if (loading) return <div>Loading...</div>;
   return (
-    <Fragment>
-      <header className="container-fluid">
-        <Navbar></Navbar>
+    <section id="roomDetailPage">
+      <header>
+        <Navbar />
       </header>
 
       {/* Body */}
-      <RoomDetail></RoomDetail>
-    </Fragment>
+      <RoomDetail />
+    </section>
   );
 }

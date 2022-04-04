@@ -10,9 +10,9 @@ export default function HamburgerIcon() {
       focusable="false"
       style={{
         // display: "block",
-        height: 16,
-        width: 16,
-        marginRight: "1rem",
+        height: "1rem",
+        width: "1rem",
+        marginRight: "0.5rem",
         stroke: "currentcolor",
         strokeWidth: 3,
         overflow: "visible",

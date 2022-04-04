@@ -49,10 +49,11 @@ export default function TrangDanhSachPhong(props) {
   // End Pagination
   if (loading) return <div>Loading...</div>;
   return (
-    <Fragment>
-      <header className="container-fluid">
+    <section id="roomList">
+      <header>
         <Navbar />
         <Filters />
+        <hr className="mt-2 mb-0" />
       </header>
 
       {renderedData?.length !== 0 && (
@@ -71,6 +72,6 @@ export default function TrangDanhSachPhong(props) {
           />
         </Stack>
       </div>
-    </Fragment>
+    </section>
   );
 }

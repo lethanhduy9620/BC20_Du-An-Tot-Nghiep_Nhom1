@@ -1,0 +1,97 @@
+/* Room Info */
+#roomBooking .bookingInfo__container {
+  padding: 0 80px;
+  background-color: #f4f4f4;
+  border-radius: 0.375rem;
+}
+
+#roomBooking .navbar div.input-area,
+#roomBooking .navbar .navbar-toggler,
+#roomBooking .navbar .navbar-collapse {
+  display: none !important;
+}
+
+#roomBooking .bookingInfo__container .main__title {
+  padding: 40px 0px 30px;
+  margin-bottom: 0;
+}
+
+#roomBooking .guest__info div {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+#roomBooking .date__info div.date__content {
+  background-color: #fff;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+}
+
+#roomBooking .date__info div.date__content span {
+  color: gray;
+}
+
+#roomBooking .date__info div.date__content p {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  padding: 0.5rem 0;
+}
+
+#roomBooking .date__info div.colorful__bar {
+  height: 0.3rem;
+  width: 50%;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+}
+
+#roomBooking .date__info .date__container:first-of-type .colorful__bar {
+  background-color: green;
+}
+
+#roomBooking .date__info .date__container:last-child .colorful__bar {
+  background-color: orange;
+}
+
+.pl-4rem {
+  padding-left: 4rem !important;
+}
+
+.pl-9rem {
+  padding-left: 9rem !important;
+}
+
+#roomBooking .bookingInfo__container .room__info {
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+#roomBooking .room__info .room__title h5 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+#roomBooking .room__title .location {
+  font-size: 0.875rem;
+}
+
+#roomBooking .room__title img {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  max-height: 90px;
+}
+
+#roomBooking .room__info p {
+  margin-bottom: 0.875rem;
+}
+
+#roomBooking .room__info .total__price p {
+  font-weight: 700;
+}
+
+#roomBooking .room__info .policies p {
+  font-size: 0.75rem;
+  margin-bottom: 0;
+}

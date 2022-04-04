@@ -16,10 +16,7 @@ export default function RoomCarousel() {
   };
 
   return (
-    <div
-      id="carousel__container"
-      className="carousel__container container-fluid"
-    >
+    <div id="carousel__container" className="carousel__container">
       <Slider {...settings}>
         <div className="pictures__container">
           <img src={roomData?.image} alt="room-image" />

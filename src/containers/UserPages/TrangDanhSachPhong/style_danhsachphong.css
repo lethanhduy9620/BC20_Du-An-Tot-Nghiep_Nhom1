@@ -5,58 +5,137 @@
   box-sizing: border-box;
 }
 
+.btn.focus,
+.btn:focus {
+  box-shadow: none;
+}
 
 /* Header */
 header {
-  padding: 0 24px !important;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #fff;
 }
 
 /* !Navbar */
+#root .container-fluid {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+.navbar--min-height {
+  min-height: 80px !important;
+}
+
+.navbar-toggler--modify {
+  border-radius: 20px !important;
+}
+
+.accountBtn__modify {
+  border-radius: 20px !important;
+  border: 1px solid black !important;
+}
+
+.accountBtn__modify:hover {
+  box-shadow: 0 0 5px 1px #cacccd !important;
+}
+
+#root .dropdown.show > .accountBtn__modify {
+  box-shadow: inset 0px 2px 5px 2px #cacccd !important;
+}
+
 /* *Drop downmenu of Account button in Navbar  */
 div.dropdown-menu.dropdown-menu--modify {
+  top: 120%;
   right: 0 !important;
   left: auto;
+  box-shadow: 0 0 15px 3px #cacccd;
+  border-radius: 0.5rem;
 }
 
 /* Filter */
-.filter__container {
-  padding: 0 24px !important;
-}
-
-.filter__container button {
+#roomList .filter__container button.btn {
+  padding: 0.375rem 0.75rem;
+  border-radius: 1rem;
   border: solid black 1px;
 }
 
-.filter__container .vertical__line {
+#roomList .filter__container .vertical__line {
   width: 1px;
   height: 30px;
   background-color: black;
 }
 
+#roomList .btn__filter {
+  border-radius: 20px;
+  margin: 1px;
+}
+
+#roomList .btn__filter.active {
+  background-color: #80808026;
+  border: 2px solid black !important;
+  margin: 0px;
+}
+
+#roomList .price__container {
+  position: relative;
+}
+
+#roomList .price__container .price__selection {
+  padding: 0.375rem 0.75rem;
+  padding-right: 1.5rem;
+  border-radius: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#roomList .price__container i {
+  position: absolute;
+  top: 50%;
+  left: 88%;
+  transform: translate(-50%, -40%);
+}
+
+#roomList .filterBtn__container {
+  width: calc(100% - 12.5rem);
+}
+
 /* Room List */
-.room__list {
-  padding: 0 24px !important;
+#roomList .roomList__container {
+  margin-top: 150px;
 }
 
-.list__title {
+#roomList .roomList__container .list__title {
   font-weight: 600;
-  padding: 1em 0 0;
+  font-size: 1.25rem;
 }
 
+/* Room card */
 .card__container {
   padding: 1rem;
 }
 
-h5.room__title {
+#roomList a {
+  text-decoration: none;
+  color: black;
+}
+
+#roomList .card__container .room__title {
   /* width: 200px; */
   white-space: nowrap;
   overflow: hidden;
   font-size: 1rem !important;
   text-overflow: ellipsis;
+  margin: 0.5rem 0;
+  font-weight: 600;
 }
 
 .room__price {
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 0.875rem;
 }
 
 .room__subtitle {

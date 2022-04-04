@@ -7,6 +7,9 @@ export default function RoomReview() {
   const data = useSelector((state) => state.roomReviewReducer.data);
 
   const renderReview = () => {
+    if (data?.length === 0) {
+      return <span className="mt-3">Chưa có đánh giá cho phòng này.</span>;
+    }
     return data?.map((review, index) => {
       return (
         <div className="review__card py-4" key={review._id}>
@@ -19,7 +22,6 @@ export default function RoomReview() {
             {/* Name */}
             <div className="d-flex flex-column">
               <span className="name">{review.userId.name}</span>
-              {/* <span>October 2022</span> */}
               <span>{`${getMonth_lib(review.updatedAt)}  ${getFullYear_lib(
                 review.updatedAt
               )}`}</span>
@@ -48,31 +50,11 @@ export default function RoomReview() {
 
   return (
     <Fragment>
-      <div id="roomReview" className="roomReview__container container-fluid">
-        <hr></hr>
+      <div className="roomReview__container">
+        <hr className="mt-0"></hr>
         <h5 className="title">Đánh giá</h5>
         <div className="review__container row row-cols-2 no-gutters">
           {renderReview()}
-
-          {/* <div className="review__card py-4">
-            <div className="review__header d-flex align-items-center">
-              <div className="user__avatar" className="mr-3">
-                <img src="/img/avatar1.jpg"></img>
-              </div>
-
-              <div className="d-flex flex-column">
-                <span className="name">Nguyễn Phong Hào</span>
-                <span>October 2022</span>
-              </div>
-            </div>
-
-            <div className="review__content mt-3">
-              <p>
-                Resort có dịch vụ xe đưa đón sân bay. Mọi ng báo giờ và số hiệu
-                chuyến bay trước tối thiểu 3 ngày để họ sắp xếp xe là được
-              </p>
-            </div>
-          </div> */}
         </div>
       </div>
     </Fragment>
