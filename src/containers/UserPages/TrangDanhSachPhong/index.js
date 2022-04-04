@@ -53,7 +53,7 @@ export default function TrangDanhSachPhong(props) {
       <header>
         <Navbar />
         <Filters />
-        <hr className="mt-2 mb-0" />
+        <hr />
       </header>
 
       {renderedData?.length !== 0 && (
