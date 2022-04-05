@@ -1,6 +1,5 @@
 import * as ActionType from "./constants";
 import api from "./../../../../../utils/apiUtils";
-
 export const actLogIn = (user) => {
   return (dispatch) => {
     dispatch(actLogInRequest());

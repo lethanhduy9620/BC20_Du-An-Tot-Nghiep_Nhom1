@@ -1,0 +1,27 @@
+.card{
+    width: 16rem;
+    height: 100%;
+    border-radius: 10px !important;
+    background-color: #de3151 !important;
+    color: white;
+    text-align: center;
+}
+
+@media screen and (max-width:1200px) {
+    .card{
+        width: 14rem;
+    }
+}
+@media screen and (max-width:992px) {
+    .card{
+        width: 10rem;
+    }
+}
+@media screen and (max-width:768px) {
+    .col-6{
+        margin-bottom: 10px;
+    }
+    .card{
+        width: 12rem;
+    }
+}

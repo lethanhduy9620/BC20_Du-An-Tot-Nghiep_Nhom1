@@ -1,22 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import data from "./data.json";
+import "./style.css";
 export default function Trip() {
   const fecthTrip = () => {
     return data.map((trip,index) => {
       return (
-        <div key={index} className="col-3">
+        <div key={index} className="col-md-3 col-6">
           <Link to={`/danh-sach-phong/${trip.key}`}>
             <div
               className="card"
-              style={{
-                width: "16rem",
-                height: "100%",
-                borderRadius: "10px",
-                backgroundColor: "#de3151",
-                color: "white",
-                textAlign: "center",
-              }}
             >
               <img
                 src={trip.hinhAnh}

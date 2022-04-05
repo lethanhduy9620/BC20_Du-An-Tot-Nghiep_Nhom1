@@ -1,0 +1,3 @@
+export const SELECT_REQUEST = "SELECT_REQUEST";
+export const SELECT_SUCCESS = "SELECT_SUCCESS";
+export const SELECT_FAILED = "SELECT_FAILED";

@@ -6,7 +6,7 @@ export default function Shop() {
         <div className='row'>
             <div className='col-sm-4 '>
                 <h3>Shop Airbnb gift cards</h3>
-                <button>Learn More</button>
+                <button className='btn btn-success'>Learn More</button>
             </div>
             <div style={{backgroundImage:'url(./img/image3.png)'}} className='col-sm-8 shop-bg'>
 

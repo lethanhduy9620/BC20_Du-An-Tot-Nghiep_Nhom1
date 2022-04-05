@@ -2,15 +2,12 @@ import React, { useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { actLogIn } from "./modules/action";
-
 export default function LogIn(props) {
   const dispatch = useDispatch();
-
   const [state, setState] = useState({
     email: "",
     password: "",
   });
-
   const handleOnChange = (event) => {
     const { name, value } = event.target;
     setState({
@@ -18,12 +15,10 @@ export default function LogIn(props) {
       [name]: value,
     });
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(actLogIn(state));
   };
-
   return (
     <div
       className="modal fade"
@@ -32,10 +27,10 @@ export default function LogIn(props) {
       aria-labelledby="loginLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog">
+      <div style={{color:"black"}} className="modal-dialog">
         <div className="modal-content ">
           <div className="modal-header justify-content-center">
-            <h5 className="modal-title" id="loginLabel">
+            <h5  className="modal-title" id="loginLabel">
               Log In
             </h5>
           </div>
@@ -62,7 +57,7 @@ export default function LogIn(props) {
                 />
               </div>
               <div className="form-group text-center">
-                <button type="submit" className="btn btn-primary">
+                <button to="/"  type="submit" role="button" className="btn btn-primary">
                   Đăng nhập
                 </button>
               </div>

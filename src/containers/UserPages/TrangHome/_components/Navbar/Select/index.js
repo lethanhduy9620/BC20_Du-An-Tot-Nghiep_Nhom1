@@ -32,7 +32,6 @@ export default function Selected() {
       selected: selected,
     });
   };
-console.log(selected.selected?.value)
   return (
     <div>
       <div className="tab-content nav-content" id="pills-tabContent">

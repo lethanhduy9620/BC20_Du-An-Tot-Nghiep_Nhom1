@@ -5,7 +5,7 @@ export default function Footer() {
     <div style={{backgroundColor:"rgb(247 247 247)"}}>
         <div className='container pt-5'>
         <div className='row'>
-            <div className='col-sm-3'>
+            <div className='col-md-3 col-6'>
                 <ul style={{listStyle:"none"}}>
                     <li><h4>Support</h4></li>
                     <li>Lorem</li>
@@ -16,7 +16,7 @@ export default function Footer() {
                     <li>Lorem</li>
                 </ul>    
             </div>
-            <div className='col-sm-3'>
+            <div className='col-md-3 col-6'>
                 <ul style={{listStyle:"none"}}>
                     <li><h4>Community</h4></li>
                     <li>Lorem</li>
@@ -27,7 +27,7 @@ export default function Footer() {
                     <li>Lorem</li>
                 </ul>    
             </div>
-            <div className='col-sm-3'>
+            <div className='col-md-3 col-6'>
                 <ul style={{listStyle:"none"}}>
                     <li><h4>Hosting</h4></li>
                     <li>Lorem</li>
@@ -38,7 +38,7 @@ export default function Footer() {
                     <li>Lorem</li>
                 </ul>    
             </div>
-            <div className='col-sm-3'>
+            <div className='col-md-3 col-6'>
                 <ul style={{listStyle:"none"}}>
                     <li><h4>About</h4></li>
                     <li>Lorem</li>

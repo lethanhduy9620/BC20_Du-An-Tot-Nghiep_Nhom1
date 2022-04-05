@@ -39,7 +39,7 @@ export default function SignUp(props) {
         aria-labelledby="signUpLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div style={{color:"black"}} className="modal-dialog">
           <div className="modal-content ">
             <div className="modal-header justify-content-center">
               <h5 className="modal-title" id="signUpLabel">

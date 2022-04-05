@@ -9,7 +9,7 @@ export default function Carousel() {
       >
           <div className="carousel-content">
             <h1>Not sure where to go? Perfect.</h1>
-            <button>I'm flexible</button>
+            <button className="btn btn-success">I'm flexible</button>
           </div>
       </div>
     </div>

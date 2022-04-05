@@ -16,3 +16,33 @@
     left: 50px;
     color: white;
 }
+@media screen and (max-width:1200px) {
+    .discover-content{
+        position: absolute;
+        content: "";
+        top: 130px;
+        left: 30px;
+        color: white;
+    }
+}
+@media screen and (max-width:992px) {
+    .discover-content{
+        position: absolute;
+        content: "";
+        top: 170px;
+        left: 20px;
+        color: white;
+    }
+    .discover-content h1{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width:768px) {
+    .discover-content{
+        position: absolute;
+        content: "";
+        top: 100px;
+        left: 50px;
+        color: white;
+    }
+}
