@@ -1,0 +1,28 @@
+/* * Formula of root font-size calcuation: newfontsize = 16px * the width of the equipment to be adapted / the width of the original design draft is obtained 
+*/
+
+/* Source: Viewport of mobile devices
+https://www.icwebdesign.co.uk/common-viewport-sizes 
+*/
+/* ! Default REM for screens whose minimum width is 1200px */
+html {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 991.5px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 767.5px) {
+  html {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 575.5px) {
+  html {
+    font-size: 8px;
+  }
+}

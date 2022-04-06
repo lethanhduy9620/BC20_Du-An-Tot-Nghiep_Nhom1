@@ -16,12 +16,12 @@ export default function RoomReview() {
           <div className="review__header d-flex align-items-center">
             {/* User Avatar */}
             <div className="mr-3 user__avatar">
-              <img src={review.userId.avatar}></img>
+              <img src={review.userId?.avatar}></img>
             </div>
 
             {/* Name */}
             <div className="d-flex flex-column">
-              <span className="name">{review.userId.name}</span>
+              <span className="name">{review.userId?.name}</span>
               <span>{`${getMonth_lib(review.updatedAt)}  ${getFullYear_lib(
                 review.updatedAt
               )}`}</span>

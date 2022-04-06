@@ -16,9 +16,9 @@ export default function RoomInfo() {
   const history = useHistory();
 
   const country =
-    roomData?.locationId.country === "viet nam"
+    roomData?.locationId?.country === "viet nam"
       ? "Việt Nam"
-      : roomData?.locationId.country;
+      : roomData?.locationId?.country;
 
   // Setup Date Range Picker
   const [startDate, setStartDate] = useState(null);
@@ -95,11 +95,13 @@ export default function RoomInfo() {
     if (!endDate) {
       domEndDate.current.click();
     }
-    let path = `/dat-phong?roomId=${roomData?._id}&checkIn=${formatDateDDMMYY(
+
+    const path = `/dat-phong?roomId=${roomData?._id}&checkIn=${formatDateDDMMYY(
       startDate
     )}&checkOut=${formatDateDDMMYY(
       endDate
     )}&numberAdult=${adultNumber}&numberChild=${childNumber}&numberInfant=${infantNumber}`;
+
     history.push(path);
   };
 
@@ -110,21 +112,20 @@ export default function RoomInfo() {
         <div className="row no-gutters">
           <div className="room__info col-8">
             {/* Tilte */}
-            <h2 className="title text-break mb-3">
-              {roomData?.name}
-              {/* Green Bay Phu Quoc Resort & Spa */}
-            </h2>
+            <h2 className="title text-break mb-3">{roomData?.name}</h2>
 
             {/* Location */}
-            <div className="location__container d-flex align-items-center mb-3">
-              <span className="d-block pr-3">
-                <LocationIcon />
-              </span>
-              <span className="location__desc d-block">
-                {`${roomData?.locationId.name}, ${roomData?.locationId.province}, ${country}`}
-                {/* Đảo Phú Quốc, Phú Quốc, Việt Nam */}
-              </span>
-            </div>
+            {roomData?.locationId && (
+              <div className="location__container d-flex align-items-center mb-3">
+                <span className="d-block pr-3">
+                  <LocationIcon />
+                </span>
+                <span className="location__desc d-block">
+                  {`${roomData?.locationId.name}, ${roomData?.locationId.province}, ${country}`}
+                  {/* Đảo Phú Quốc, Phú Quốc, Việt Nam */}
+                </span>
+              </div>
+            )}
 
             {/* Room Detail */}
             <div className="room__quantity mb-4">
@@ -156,7 +157,7 @@ export default function RoomInfo() {
                   Giới thiệu về các tiện nghi và dịch vụ tại nơi lưu trú
                 </p>
               </div>
-              <div className="room__utilities row row-cols-2 align-items-center w-90">
+              <div className="room__utilities row row-cols-2 align-items-center no-gutters">
                 <IconList roomData={roomData} />
 
                 {/* <div className="col d-flex my-3">
@@ -171,7 +172,7 @@ export default function RoomInfo() {
 
           {/* Room Booking */}
           <div className="room__booking col-4">
-            <div className="booking__form p-4">
+            <div className="booking__form p-3 p-lg-4">
               <div className="price__container mb-4">
                 <span className="price">
                   {formatPrice(roomData?.price) + "đ"}
@@ -243,7 +244,7 @@ export default function RoomInfo() {
                     ) + "đ"}
                   </p>
                 </div>
-                <hr></hr>
+                <hr />
                 <div className="total__price mt-3 d-flex justify-content-between px-2">
                   <p className="mb-0">Tổng tiền</p>
                   <p className="mb-0">

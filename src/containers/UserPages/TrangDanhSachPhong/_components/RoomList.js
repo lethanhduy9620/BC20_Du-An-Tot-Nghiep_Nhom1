@@ -13,7 +13,7 @@ export default function RoomList(props) {
         </h4>
       )}
 
-      <div className="rooms__container row row-cols-2 row-cols-lg-4 row-cols-xl-5">
+      <div className="rooms__container row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
         {roomList?.map((roomData, index) => {
           return <RoomCard key={roomData._id} roomData={roomData}></RoomCard>;
         })}

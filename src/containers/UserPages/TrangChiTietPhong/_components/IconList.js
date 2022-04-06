@@ -16,52 +16,52 @@ export default function IconList(props) {
     {
       key: "elevator",
       name: "Thang máy",
-      component: <ElevatorIcon></ElevatorIcon>,
+      component: <ElevatorIcon />,
     },
     {
       key: "hotTub",
       name: "Hồ massage",
-      component: <HotTubIcon></HotTubIcon>,
+      component: <HotTubIcon />,
     },
     {
       key: "pool",
       name: "Hồ bơi",
-      component: <PoolIcon></PoolIcon>,
+      component: <PoolIcon />,
     },
     {
       key: "indoorFireplace",
       name: "Lò sưởi",
-      component: <FireplaceIcon></FireplaceIcon>,
+      component: <FireplaceIcon />,
     },
     {
       key: "dryer",
       name: "Máy sấy",
-      component: <DryerIcon></DryerIcon>,
+      component: <DryerIcon />,
     },
     {
       key: "gym",
       name: "Phòng tập gym",
-      component: <GymIcon></GymIcon>,
+      component: <GymIcon />,
     },
     {
       key: "kitchen",
       name: "Nhà bếp",
-      component: <KitchenIcon></KitchenIcon>,
+      component: <KitchenIcon />,
     },
     {
       key: "wifi",
       name: "Wifi",
-      component: <WifiIcon></WifiIcon>,
+      component: <WifiIcon />,
     },
     {
       key: "heating",
       name: "Máy sưởi",
-      component: <HeatingIcon></HeatingIcon>,
+      component: <HeatingIcon />,
     },
     {
       key: "cableTV",
       name: "Truyền hình cáp",
-      component: <TVIcon></TVIcon>,
+      component: <TVIcon />,
     },
   ];
 
