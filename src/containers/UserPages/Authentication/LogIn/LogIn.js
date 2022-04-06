@@ -17,7 +17,7 @@ export default function LogIn(props) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(actLogIn(state,props.history));
+    dispatch(actLogIn(state, props.history));
   };
   return (
     <div
@@ -27,10 +27,10 @@ export default function LogIn(props) {
       aria-labelledby="loginLabel"
       aria-hidden="true"
     >
-      <div style={{color:"black"}} className="modal-dialog">
+      <div style={{ color: "black" }} className="modal-dialog">
         <div className="modal-content ">
           <div className="modal-header justify-content-center">
-            <h5  className="modal-title" id="loginLabel">
+            <h5 className="modal-title" id="loginLabel">
               Log In
             </h5>
           </div>
@@ -57,7 +57,14 @@ export default function LogIn(props) {
                 />
               </div>
               <div className="form-group text-center">
-                <button  type="submit" role="button" className="btn btn-primary">
+                <button
+                  onClick={() => {
+                    window.location.replace("/");
+                  }}
+                  type="submit"
+                  role="button"
+                  className="btn btn-primary"
+                >
                   Đăng nhập
                 </button>
               </div>
