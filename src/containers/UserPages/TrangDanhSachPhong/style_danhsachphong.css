@@ -1,3 +1,5 @@
+@import url("./../style_base.css");
+
 /* General */
 * {
   margin: 0;
@@ -23,21 +25,26 @@ header {
 }
 
 .navbar--min-height {
-  min-height: 80px !important;
+  min-height: 5rem !important;
 }
 
 .navbar-toggler--modify {
-  border-radius: 20px !important;
+  border-radius: 1.25rem !important;
 }
 
 .accountBtn__modify {
-  border-radius: 20px !important;
+  border-radius: 0.8rem !important;
   border: 1px solid black !important;
 }
 
 .accountBtn__modify:hover {
   box-shadow: 0 0 5px 1px #cacccd !important;
 }
+/* 
+#root .navbar-brand {
+  width: 102px;
+  height: 32px;
+} */
 
 #root .dropdown.show > .accountBtn__modify {
   box-shadow: inset 0px 2px 5px 2px #cacccd !important;
@@ -91,12 +98,23 @@ div.dropdown-menu.dropdown-menu--modify {
 #roomList .price__container i {
   position: absolute;
   top: 50%;
-  left: 88%;
+  right: 5%;
   transform: translate(-50%, -40%);
 }
 
-#roomList .filterBtn__container {
-  width: calc(100% - 12.5rem);
+#roomList div.form-check input {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+#roomList div.form-check label {
+  margin-top: 0.15rem;
+  margin-left: 0.5rem;
+}
+
+/* Remove arrow in the dropdown box */
+#roomList .filter__button.dropdown-toggle::after {
+  display: none;
 }
 
 /* Room List */
@@ -137,4 +155,67 @@ div.dropdown-menu.dropdown-menu--modify {
 .room__subtitle {
   font-size: 0.875rem;
   color: darkgray;
+}
+
+/* Responsive */
+/* Gernal Responsive  */
+@media screen and (max-width: 991.5px) {
+  #root .navbar-brand svg {
+    /* transform: scale(0.875); */
+  }
+}
+
+@media screen and (max-width: 767.5px) {
+  #root .navbar-brand svg {
+    /* transform: scale(0.6875); */
+  }
+}
+
+@media screen and (max-width: 575.5px) {
+  #root .navbar-brand svg {
+    /* transform: scale(0.5); */
+  }
+}
+
+/*Responsive breakpoints of filter button list */
+@media screen and (min-width: 1050px) {
+  #roomList .btn.d-min1050-inline {
+    display: inline !important;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #roomList .btn.d-min1000-inline {
+    display: inline !important;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  #roomList .btn.d-min950-inline {
+    display: inline !important;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #roomList .btn.d-min900-inline {
+    display: inline !important;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #roomList .btn.d-min800-inline {
+    display: inline !important;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #roomList .btn.d-min750-inline {
+    display: inline !important;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  #roomList .btn.d-min650-inline {
+    display: inline !important;
+  }
 }

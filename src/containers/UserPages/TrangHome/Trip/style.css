@@ -1,27 +1,27 @@
-#homepage .card{
-    width: 16rem;
-    height: 100%;
-    border-radius: 10px ;
-    background-color: #de3151;
-    color: white;
-    text-align: center;
+#homepage .card {
+  width: 16rem;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #de3151;
+  color: white;
+  text-align: center;
 }
 
-@media screen and (max-width:1200px) {
-    .card{
-        width: 14rem;
-    }
+@media screen and (max-width: 1200px) {
+  #homepage .card {
+    width: 14rem;
+  }
 }
-@media screen and (max-width:992px) {
-    .card{
-        width: 10rem;
-    }
+@media screen and (max-width: 992px) {
+  #homepage .card {
+    width: 10rem;
+  }
 }
-@media screen and (max-width:768px) {
-    .col-6{
-        margin-bottom: 10px;
-    }
-    .card{
-        width: 12rem;
-    }
+@media screen and (max-width: 768px) {
+  #homepage .col-6 {
+    margin-bottom: 10px;
+  }
+  #homepage .card {
+    width: 12rem;
+  }
 }

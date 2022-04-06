@@ -6,7 +6,7 @@ export default function WifiIcon() {
       version="1.1"
       viewBox="0 0 24 24"
       className="svg-icon svg-fill"
-      style={{ width: 24, height: 24 }}
+      style={{ width: "1.5rem", height: "1.5rem" }}
     >
       <g fill="#000" fillRule="nonzero">
         <path

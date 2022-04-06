@@ -10,8 +10,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useParams } from "react-router";
 
-export default function TrangDanhSachPhong(props) {
-  // const locationID = "616953dfefe193001c0a5b4e";
+export default function TrangDanhSachPhong() {
   const { locationID } = useParams();
 
   const dispatch = useDispatch();

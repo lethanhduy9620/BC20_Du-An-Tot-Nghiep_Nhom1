@@ -52,3 +52,9 @@ export const actRemoveFilterRoomList = (id) => {
     payload: id,
   };
 };
+
+export const actResetFilterRoomList = () => {
+  return {
+    type: ActionType.RESET_FILTER_ROOM_LIST,
+  };
+};

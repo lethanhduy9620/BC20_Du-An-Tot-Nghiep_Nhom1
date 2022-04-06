@@ -1,46 +1,12 @@
 import * as ActionType from "./constants";
+import { listOfFilterButtons } from "./../_components/ListOfFilterButton";
 
 let initialState = {
   loading: false,
   originalData: null, //Data from server
   data: null, // Data after being filtered
   error: null,
-  conditionList: [
-    {
-      id: "elevator",
-      value: "Thang Máy",
-      isSelected: false,
-      responsiveClass: "",
-    },
-    {
-      id: "hotTub",
-      value: "Hồ Massage",
-      isSelected: false,
-      responsiveClass: "",
-    },
-    { id: "pool", value: "Hồ Bơi", isSelected: false, responsiveClass: "" },
-    { id: "dryer", value: "Máy Sấy", isSelected: false, responsiveClass: "" },
-    { id: "gym", value: "Gym", isSelected: false, responsiveClass: "" },
-    {
-      id: "kitchen",
-      value: "Phòng Bếp",
-      isSelected: false,
-      responsiveClass: "",
-    },
-    { id: "wifi", value: "Wifi", isSelected: false, responsiveClass: "" },
-    {
-      id: "heating",
-      value: "Máy Sưởi",
-      isSelected: false,
-      responsiveClass: "",
-    },
-    {
-      id: "cableTV",
-      value: "Truyền Hình Cáp",
-      isSelected: false,
-      responsiveClass: "",
-    },
-  ],
+  // conditionList: listOfFilterButtons,
   filterArray: [],
 };
 
@@ -71,12 +37,6 @@ const roomListReducer = (state = initialState, action) => {
       state.filterArray = [];
       return { ...state };
     case ActionType.REQUEST_ROOM_LIST_SUCCESS: {
-      // *Version: 1
-      // state.loading = false;
-      // state.data = action.payload;
-      // state.error = null;
-
-      // *Version 2
       state.originalData = action.payload;
       state.loading = false;
       state.error = null;
@@ -93,15 +53,20 @@ const roomListReducer = (state = initialState, action) => {
       state.data = filterData(state.data, state.filterArray); //filter from already filtered data in the REQUEST_ROOM_LIST_SUCCESS
       return { ...state };
     }
-    case ActionType.REMOVE_FILTER_ROOM_LIST:
-      {
-        const index = state.filterArray.findIndex(
-          (condition) => condition === action.payload
-        );
-        state.filterArray.splice(index, 1);
-        state.data = filterData(state.originalData, state.filterArray);
-      }
+    case ActionType.REMOVE_FILTER_ROOM_LIST: {
+      const index = state.filterArray.findIndex(
+        (condition) => condition === action.payload
+      );
+      state.filterArray.splice(index, 1);
+      state.data = filterData(state.originalData, state.filterArray);
       return { ...state };
+    }
+    case ActionType.RESET_FILTER_ROOM_LIST: {
+      state.filterArray = [];
+      state.data = state.originalData;
+      return { ...state };
+    }
+
     default:
       return { ...state };
   }

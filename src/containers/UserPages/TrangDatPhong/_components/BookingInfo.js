@@ -38,7 +38,7 @@ export default function BookingInfo(props) {
       Saturday: "Thứ bảy",
       Sunday: "Chủ nhật",
     };
-    return dateInVN[moment(date).format("dddd")];
+    return dateInVN[moment(date, "DD/MM/YYYY").format("dddd")];
   };
 
   // Calculate difference between check-in date and check-out date
@@ -135,14 +135,16 @@ export default function BookingInfo(props) {
             <div className="room__title row no-gutters ">
               <div className="col-8 pr-3">
                 <h5>{roomData?.name}</h5>
-                <div>
-                  <span>
-                    <LocationIcon />
-                  </span>
-                  <span className="location pl-2">
-                    {`${roomData?.locationId.name}, ${roomData?.locationId.province}, Việt Nam`}
-                  </span>
-                </div>
+                {roomData?.locationId && (
+                  <div>
+                    <span>
+                      <LocationIcon />
+                    </span>
+                    <span className="location pl-2">
+                      {`${roomData?.locationId.name}, ${roomData?.locationId.province}, Việt Nam`}
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="col-4">
                 <img src={roomData?.image} />
