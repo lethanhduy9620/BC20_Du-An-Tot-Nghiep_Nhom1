@@ -7,7 +7,7 @@ import Shop from "./Shop";
 import Trip from "./Trip";
 export default function TrangHome() {
   return (
-    <div>
+    <div id="homepage">
       <HomeNav />
       <Carousel />
       <Trip />

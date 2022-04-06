@@ -16,7 +16,6 @@ export const actLogIn = (user) => {
           alert("Đăng nhập thành công");
           localStorage.setItem("User", JSON.stringify(result.data));
           dispatch(actLoginSuccess(result.data));
-
           // Close Modal
           if (document.getElementById("logInModal")) {
             document.getElementById("logInModal").click();

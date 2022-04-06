@@ -1,8 +1,8 @@
-.card{
+#homepage .card{
     width: 16rem;
     height: 100%;
-    border-radius: 10px !important;
-    background-color: #de3151 !important;
+    border-radius: 10px ;
+    background-color: #de3151;
     color: white;
     text-align: center;
 }

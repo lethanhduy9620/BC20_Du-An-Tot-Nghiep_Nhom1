@@ -17,7 +17,7 @@ export default function LogIn(props) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(actLogIn(state));
+    dispatch(actLogIn(state,props.history));
   };
   return (
     <div
@@ -57,7 +57,7 @@ export default function LogIn(props) {
                 />
               </div>
               <div className="form-group text-center">
-                <button to="/"  type="submit" role="button" className="btn btn-primary">
+                <button  type="submit" role="button" className="btn btn-primary">
                   Đăng nhập
                 </button>
               </div>
