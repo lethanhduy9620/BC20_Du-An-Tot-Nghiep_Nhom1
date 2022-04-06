@@ -57,7 +57,9 @@ export default function LogIn(props) {
                 />
               </div>
               <div className="form-group text-center">
-                <button  type="submit" role="button" className="btn btn-primary">
+                <button onClick={()=>{
+                  window.location.replace("/")
+                }}  type="submit" role="button" className="btn btn-primary">
                   Đăng nhập
                 </button>
               </div>

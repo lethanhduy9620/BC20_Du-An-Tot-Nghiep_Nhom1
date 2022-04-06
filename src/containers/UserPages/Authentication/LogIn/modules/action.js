@@ -14,8 +14,10 @@ export const actLogIn = (user) => {
           });
         } else {
           alert("Đăng nhập thành công");
+          
           localStorage.setItem("User", JSON.stringify(result.data));
           dispatch(actLoginSuccess(result.data));
+          // window.location.href ="http://localhost:3000/"
           // Close Modal
           if (document.getElementById("logInModal")) {
             document.getElementById("logInModal").click();
