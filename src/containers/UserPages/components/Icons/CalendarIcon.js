@@ -3,8 +3,8 @@ import React from "react";
 export default function CalendarIcon() {
   return (
     <svg
-      width="32"
-      height="32"
+      width="2rem"
+      height="2rem"
       version="1.1"
       viewBox="0 0 24 24"
       class="icon--24 svg-icon svg-fill"

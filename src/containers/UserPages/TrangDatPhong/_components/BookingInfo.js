@@ -9,9 +9,9 @@ import { useLocation } from "react-router-dom";
 import LogInComp from "./LogInComp";
 import { actBookingRoom } from "./../modules/actions";
 
-export default function BookingInfo(props) {
+export default function BookingInfo() {
   const roomData = useSelector((state) => state.roomDetailReducer.data);
-  const accountData = useSelector((state) => state.logInReducer.data);
+  const accountData = useSelector((state) => state.logInReducer.data); //This line is used to rerender after login completion
   const dispatch = useDispatch();
 
   function useQuery() {
@@ -64,7 +64,7 @@ export default function BookingInfo(props) {
   return (
     <div className="bookingInfo__container">
       <div className="row">
-        <div className="col-6">
+        <div className="col-6 bookingDetail__container ">
           <div className="main__title">
             <h3 className="mb-0">Thông tin đặt phòng</h3>
           </div>
@@ -127,7 +127,7 @@ export default function BookingInfo(props) {
           </div>
         </div>
 
-        <div className="col-6 pl-9rem">
+        <div className="col-6 roomDetail__container">
           <div className="main__title">
             <h3 className="mb-0">Chi tiết đặt phòng</h3>
           </div>

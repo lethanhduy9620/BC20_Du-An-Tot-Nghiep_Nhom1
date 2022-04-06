@@ -5,8 +5,8 @@ import { actLogIn } from "./modules/action";
 export default function LogIn(props) {
   const dispatch = useDispatch();
   const [state, setState] = useState({
-    email: "",
-    password: "",
+    email: "kha9x0159@gmail.com",
+    password: "123456",
   });
   const handleOnChange = (event) => {
     const { name, value } = event.target;
@@ -17,8 +17,9 @@ export default function LogIn(props) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(actLogIn(state, props.history));
+    dispatch(actLogIn(state));
   };
+
   return (
     <div
       className="modal fade"
@@ -57,14 +58,7 @@ export default function LogIn(props) {
                 />
               </div>
               <div className="form-group text-center">
-                <button
-                  onClick={() => {
-                    window.location.replace("/");
-                  }}
-                  type="submit"
-                  role="button"
-                  className="btn btn-primary"
-                >
+                <button type="submit" role="button" className="btn btn-primary">
                   Đăng nhập
                 </button>
               </div>

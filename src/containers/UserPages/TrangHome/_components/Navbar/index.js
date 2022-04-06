@@ -1,48 +1,56 @@
 import React from "react";
 import "./style.css";
 import LanguageIcon from "@mui/icons-material/Language";
-import Logo from "../../../components/Logo"
+import Logo from "../../../components/Logo";
 import HamburgerIcon from "./../../../components/Icons/HamburgerIcon";
 import PersonIcon from "./../../../components/Icons/PersonIcon";
 import Select from "./Select";
 import SelectResponsive from "./Select-responsive";
 import { Link } from "react-router-dom";
 import LogIn from "../../../Authentication/LogIn/LogIn";
-import SignUp from "../../../Authentication/SignUp/SignUp"
-import LogoutIcon from '@mui/icons-material/Logout';
+import SignUp from "../../../Authentication/SignUp/SignUp";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useSelector } from "react-redux";
 export default function HomeNav() {
-  const user = JSON.parse(localStorage.getItem("User"))
-  const handleLogout = () =>{
+  const accountData = useSelector((state) => state.logInReducer.data); //This line is used to rerender after login completion
+  const user = JSON.parse(localStorage.getItem("User"));
+  const handleLogout = () => {
     localStorage.clear();
-  }
-  const handleLogin = () =>{
-    if(localStorage.getItem("User")){
-      return(
-         <div>
-            <div className="d-flex justify-content-between align-items-center row">
-            <div className="col-sm-10"><span >{user.user.name}</span></div>
-            <div className="col-sm-2"><Link to="/" onClick={handleLogout()}  className="btn text-light"><LogoutIcon/></Link></div>
+  };
+  const handleLogin = () => {
+    if (localStorage.getItem("User")) {
+      return (
+        <div>
+          <div className="d-flex justify-content-between align-items-center row">
+            <div className="col-sm-10">
+              <span>{user.user.name}</span>
+            </div>
+            <div className="col-sm-2">
+              <Link to="/" onClick={handleLogout} className="btn text-light">
+                <LogoutIcon />
+              </Link>
+            </div>
+          </div>
         </div>
-         </div>
-      )
-    }else{
+      );
+    } else {
       return (
         <button
-        className="btn btn-light"
-        type="button"
-        id="dropdownMenuButton"
-        data-toggle="dropdown"
-        aria-expanded="false"
-        style={{ border: "1px solid black" }}
-      >
-        <div className="d-flex justify-content-between align-items-center">
-          <HamburgerIcon></HamburgerIcon>
-          <PersonIcon></PersonIcon>
-        </div>
-      </button>
-      )
+          className="btn btn-light"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-expanded="false"
+          style={{ border: "1px solid black" }}
+        >
+          <div className="d-flex justify-content-between align-items-center">
+            <HamburgerIcon></HamburgerIcon>
+            <PersonIcon></PersonIcon>
+          </div>
+        </button>
+      );
     }
-  }
+  };
   return (
     <div style={{ backgroundColor: "black" }} className="homenav pb-5">
       <div className="container">
@@ -51,7 +59,11 @@ export default function HomeNav() {
             <Logo></Logo>
           </div>
           <div className="col-sm-5 mt-4 my-responsive">
-            <ul className="nav nav-pills mb-3 my-responsive" id="pills-tab" role="tablist">
+            <ul
+              className="nav nav-pills mb-3 my-responsive"
+              id="pills-tab"
+              role="tablist"
+            >
               <li className="nav-item" role="presentation">
                 <a
                   className="nav-link active top-navlink"
@@ -84,37 +96,44 @@ export default function HomeNav() {
             </ul>
           </div>
           <div className="reponsive-1200px col-sm-5 mt-4 pt-3">
-            <SelectResponsive/>
+            <SelectResponsive />
           </div>
           <div className="col-sm-4 mt-4 d-flex justify-content-lg-end align-items-center">
-            <span className="pr-3 responsive-992px" style={{display:`${localStorage.getItem("User") ? "none" : "block" }`}}>Become a Host <LanguageIcon /></span>
+            <span
+              className="pr-3 responsive-992px"
+              style={{
+                display: `${localStorage.getItem("User") ? "none" : "block"}`,
+              }}
+            >
+              Become a Host <LanguageIcon />
+            </span>
             <div className="dropdown pl-3">
               {handleLogin()}
               {/* Dropdown menu */}
               <div
-            className="dropdown-menu dropdown-menu--modify"
-            aria-labelledby="dropdownMenuButton"
-          >
-            <a
-              type="button"
-              className="dropdown-item"
-              data-toggle="modal"
-              data-target="#signUpModal"
-            >
-              Sign Up
-            </a>
-            <a
-              type="button"
-              className="dropdown-item"
-              data-toggle="modal"
-              data-target="#logInModal"
-            >
-              Log In
-            </a>
-          </div>
+                className="dropdown-menu dropdown-menu--modify"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <a
+                  type="button"
+                  className="dropdown-item"
+                  data-toggle="modal"
+                  data-target="#signUpModal"
+                >
+                  Sign Up
+                </a>
+                <a
+                  type="button"
+                  className="dropdown-item"
+                  data-toggle="modal"
+                  data-target="#logInModal"
+                >
+                  Log In
+                </a>
+              </div>
 
-          <SignUp id="signUpModal" />
-          <LogIn id="logInModal" />
+              <SignUp id="signUpModal" />
+              <LogIn id="logInModal" />
             </div>
           </div>
         </div>

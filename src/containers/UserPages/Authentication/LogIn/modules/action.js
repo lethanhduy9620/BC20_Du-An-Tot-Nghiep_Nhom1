@@ -6,22 +6,13 @@ export const actLogIn = (user) => {
     api
       .post("/auth/login", user)
       .then((result) => {
-        if (result.data.type == "ADMIN") {
-          return Promise.reject({
-            data: {
-              content: "khong co quyen truy cap",
-            },
-          });
-        } else {
-          alert("Đăng nhập thành công");
-          
-          localStorage.setItem("User", JSON.stringify(result.data));
-          dispatch(actLoginSuccess(result.data));
-          // window.location.href ="http://localhost:3000/"
-          // Close Modal
-          if (document.getElementById("logInModal")) {
-            document.getElementById("logInModal").click();
-          }
+        alert("Đăng nhập thành công");
+        console.log("Okay");
+        localStorage.setItem("User", JSON.stringify(result.data));
+        dispatch(actLoginSuccess(result.data));
+        // Close Modal
+        if (document.getElementById("logInModal")) {
+          document.getElementById("logInModal").click();
         }
       })
       .catch((error) => {
