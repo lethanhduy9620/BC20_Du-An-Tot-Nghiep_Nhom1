@@ -1,0 +1,15 @@
+#successfulBookingPage {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+#successfulBookingPage .page__container {
+  background-color: #f4f4f4;
+  height: 100%;
+  padding: 10% 19%;
+}
+
+#successfulBookingPage .page__container p {
+  font-size: 1.125rem;
+  line-height: 2;
+}

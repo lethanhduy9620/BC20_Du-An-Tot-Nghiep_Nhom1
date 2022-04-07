@@ -1,9 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { actSignUp } from "./modules/action";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function SignUp(props) {
-  const data = useSelector((state) => state.signUpReducer.data);
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
@@ -39,7 +38,7 @@ export default function SignUp(props) {
         aria-labelledby="signUpLabel"
         aria-hidden="true"
       >
-        <div style={{color:"black"}} className="modal-dialog">
+        <div style={{ color: "black" }} className="modal-dialog">
           <div className="modal-content ">
             <div className="modal-header justify-content-center">
               <h5 className="modal-title" id="signUpLabel">
@@ -56,9 +55,6 @@ export default function SignUp(props) {
                     name="name"
                     onChange={handleOnChange}
                   />
-                  {/* <small id="emailHelp" className="form-text text-muted">
-                  We'll never share your email with anyone else.
-                </small> */}
                 </div>
 
                 {/* Email */}

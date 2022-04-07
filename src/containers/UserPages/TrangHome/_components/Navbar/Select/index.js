@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import DehazeIcon from "@mui/icons-material/Dehaze";
 import SearchIcon from "@mui/icons-material/Search";
 import actSelect from "./modules/action";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,18 +13,18 @@ export default function Selected() {
   }, []);
 
   const [location, setLocations] = useState({
-    value:"",
+    value: "",
     label: "",
   });
- 
-  useEffect(()=>{
-    if(data){
-      const choice = data.map((item)=>{
-        return {value:item._id , label:item.province}
-      })
-      setLocations(choice)
+
+  useEffect(() => {
+    if (data) {
+      const choice = data.map((item) => {
+        return { value: item._id, label: item.province };
+      });
+      setLocations(choice);
     }
-  },[data])
+  }, [data]);
   const handleOnchange = (selected) => {
     setSelected({
       selected: selected,
@@ -50,10 +48,6 @@ export default function Selected() {
                   aria-expanded="false"
                 >
                   Location
-                  {/* <input
-                    style={{ display: "block", border: "none" }}
-                    placeholder="Where are you going?"
-                  ></input> */}
                   <Select
                     value={selected.value}
                     onChange={handleOnchange}
@@ -61,12 +55,6 @@ export default function Selected() {
                     options={location}
                   />
                 </a>
-
-                {/* <div
-                  className="dropdown-menu"
-                  aria-labelledby="dropdownMenuButton"
-                >
-                </div> */}
               </div>
             </li>
             <li className="nav-item">
@@ -88,7 +76,10 @@ export default function Selected() {
               <p>Add guests</p>
             </li>
             <li className="nav-item">
-              <Link className="nav-link bottom-navlink mt-2" to={`/danh-sach-phong/${selected.selected?.value}`}>
+              <Link
+                className="nav-link bottom-navlink mt-2"
+                to={`/danh-sach-phong/${selected.selected?.value}`}
+              >
                 <SearchIcon />
               </Link>
             </li>

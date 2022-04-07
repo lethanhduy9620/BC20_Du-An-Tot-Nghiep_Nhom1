@@ -10,11 +10,9 @@ export const actFetchRoomList = (locationID) => {
       .get(`rooms?locationId=${locationID}`)
       .then((result) => {
         dispatch(actRequestRoomListSuccess(result.data));
-        // console.log(result.data);
       })
       .catch((error) => {
         dispatch(actRequestRoomListFail(error));
-        // console.log(error);
       });
   };
 };

@@ -17,6 +17,7 @@ const bookingRoomReducer = (state = initialState, action) => {
       state.loading = false;
       state.data = action.payload;
       state.error = null;
+      return { ...state };
     }
     case ActionType.REQUEST_BOOKING_ROOM_ERROR:
       state.loading = false;

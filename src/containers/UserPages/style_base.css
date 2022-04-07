@@ -26,3 +26,88 @@ html {
     font-size: 8px;
   }
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: rgb(255, 56, 92);
+  --primary-border-color: rgb(255, 37, 77);
+  --primary-hover-color: rgb(202, 5, 42);
+  --secondary-disabled-color: gray;
+}
+
+.btn.focus,
+.btn:focus {
+  box-shadow: none;
+}
+
+#root .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-border-color);
+}
+
+#root .btn-light {
+  border-color: black;
+  box-shadow: none !important;
+}
+
+#root .btn-primary:focus {
+  background-color: var(--primary-hover-color);
+  box-shadow: none;
+}
+
+#root .btn-primary:hover {
+  background-color: var(--primary-hover-color);
+  box-shadow: none;
+}
+
+#root button.btn-light:disabled {
+  cursor: not-allowed;
+  background-color: var(--secondary-disabled-color);
+}
+
+/* * Navbar */
+#root .container-fluid {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+.navbar--min-height {
+  min-height: 5rem !important;
+}
+
+.navbar-toggler--modify {
+  border-radius: 1.25rem !important;
+}
+
+.accountBtn__modify {
+  border-radius: 0.8rem !important;
+  border: 1px solid black !important;
+}
+
+.accountBtn__modify:hover {
+  box-shadow: 0 0 5px 1px #cacccd !important;
+}
+
+#root .dropdown.show > .accountBtn__modify {
+  box-shadow: inset 0px 2px 5px 2px #cacccd !important;
+}
+
+/* *Drop downmenu of Account button in Navbar  */
+div.dropdown-menu.dropdown-menu--modify {
+  top: 120%;
+  right: 0 !important;
+  left: auto;
+  box-shadow: 0 0 15px 3px #cacccd;
+  border-radius: 0.5rem;
+}
+
+#root #successfulBookingPage #accountButton__container,
+#root #roomBookingPage #accountButton__container,
+#root #pageNotFound #accountButton__container {
+  display: none !important;
+}

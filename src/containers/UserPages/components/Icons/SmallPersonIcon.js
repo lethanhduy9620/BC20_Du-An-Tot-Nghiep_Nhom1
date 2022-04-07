@@ -7,7 +7,7 @@ export default function SmallPersonIcon() {
       height="2rem"
       version="1.1"
       viewBox="0 0 24 24"
-      class="icon--24 svg-icon svg-fill"
+      className="icon--24 svg-icon svg-fill"
     >
       <g fill="none">
         <circle pid="0" cx="12" cy="12" r="12" fill="#BEBEBE"></circle>

@@ -32,13 +32,13 @@ export default function RoomCarousel() {
         </div>
         {/* Clone images để tạo hiệu ứng cho slick carousel */}
         <div className="pictures__container">
-          <img src="/img/no-image-available.jpg" alt="room1" />
+          <img src="/img/no-image-available.jpg" alt="room1.1" />
         </div>
         <div className="pictures__container">
-          <img src="/img/no-image-available.jpg" alt="room1" />
+          <img src="/img/no-image-available.jpg" alt="room1.2" />
         </div>
         <div className="pictures__container">
-          <img src="/img/no-image-available.jpg" alt="room1" />
+          <img src="/img/no-image-available.jpg" alt="room1.3" />
         </div>
       </Slider>
     </div>

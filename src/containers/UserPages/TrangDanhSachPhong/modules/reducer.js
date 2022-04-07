@@ -1,12 +1,10 @@
 import * as ActionType from "./constants";
-import { listOfFilterButtons } from "./../_components/ListOfFilterButton";
 
 let initialState = {
   loading: false,
   originalData: null, //Data from server
   data: null, // Data after being filtered
   error: null,
-  // conditionList: listOfFilterButtons,
   filterArray: [],
 };
 

@@ -7,13 +7,13 @@ export default function CalendarIcon() {
       height="2rem"
       version="1.1"
       viewBox="0 0 24 24"
-      class="icon--24 svg-icon svg-fill"
+      className="icon--24 svg-icon svg-fill"
     >
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <path
           pid="0"
           fill="#BEBEBE"
-          fill-rule="nonzero"
+          fillRule="nonzero"
           d="M12 0c6.614 0 12 5.386 12 12s-5.386 12-12 12S0 18.614 0 12 5.386 0 12 0z"
         ></path>
         <path

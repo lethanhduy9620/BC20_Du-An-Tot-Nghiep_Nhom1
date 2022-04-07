@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import Navbar from "./_components/Navbar_DSPhong";
 import Filters from "./_components/Filters";
 import "./style_danhsachphong.css";
@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useParams } from "react-router";
+import Footer from "./../TrangHome/_components/Footer/index";
+import Loader from "./../components/Loader/Loader";
 
 export default function TrangDanhSachPhong() {
   const { locationID } = useParams();
@@ -46,9 +48,9 @@ export default function TrangDanhSachPhong() {
   }, [page, data]);
 
   // End Pagination
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loader />;
   return (
-    <section id="roomList">
+    <section id="roomListPage">
       <header>
         <Navbar />
         <Filters />
@@ -60,7 +62,7 @@ export default function TrangDanhSachPhong() {
       )}
 
       {/* Pagination */}
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center mb-5">
         <Stack spacing={2}>
           <Pagination
             count={count}
@@ -71,6 +73,8 @@ export default function TrangDanhSachPhong() {
           />
         </Stack>
       </div>
+
+      <Footer />
     </section>
   );
 }

@@ -1,22 +1,22 @@
 [
-    {
-        "key":"61698c5fefe193001c0a5baa",
-        "ten": "Nha Trang",
-        "hinhAnh": "/img/location1.jpg"
-    },
-    {
-        "key":"616952c3efe193001c0a5b46",
-        "ten": "Cần Thơ",
-        "hinhAnh": "/img/location2.jpg"
-    },
-    {
-        "key":"62033302fee2fc001cd7a382",
-        "ten": "Huế",
-        "hinhAnh": "/img/location3.jpg"
-    },
-    {
-        "key":"62032e97fee2fc001cd7a33b",
-        "ten": "Phú Quốc",
-        "hinhAnh": "/img/location4.jpg"
-    }
+  {
+    "key": "618f60cdd1aba6001cefbf49",
+    "ten": "Quảng Ninh",
+    "hinhAnh": "/img/location1.jpg"
+  },
+  {
+    "key": "616952c3efe193001c0a5b46",
+    "ten": "Cần Thơ",
+    "hinhAnh": "/img/location2.jpg"
+  },
+  {
+    "key": "62033302fee2fc001cd7a382",
+    "ten": "Huế",
+    "hinhAnh": "/img/location3.jpg"
+  },
+  {
+    "key": "62032e97fee2fc001cd7a33b",
+    "ten": "Phú Quốc",
+    "hinhAnh": "/img/location4.jpg"
+  }
 ]

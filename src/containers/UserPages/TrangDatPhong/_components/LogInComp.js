@@ -5,8 +5,8 @@ import { useDispatch } from "react-redux";
 export default function LogInComp() {
   const dispatch = useDispatch();
   const [state, setState] = useState({
-    email: "bc20_lethanhduy@gmail_test1.com",
-    password: "123456789",
+    email: "",
+    password: "",
   });
 
   const handleOnChange = (event) => {
@@ -23,7 +23,7 @@ export default function LogInComp() {
   };
 
   return (
-    <div className="row flex-column no-gutters">
+    <div className="row flex-column no-gutters mb-5">
       <h4 className="pb-4">Đăng nhập để đặt phòng</h4>
       <form className="w-100" onSubmit={handleSubmit}>
         <input

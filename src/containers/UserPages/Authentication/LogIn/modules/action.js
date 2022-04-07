@@ -3,11 +3,11 @@ import api from "./../../../../../utils/apiUtils";
 export const actLogIn = (user) => {
   return (dispatch) => {
     dispatch(actLogInRequest());
+
     api
       .post("/auth/login", user)
       .then((result) => {
         alert("Đăng nhập thành công");
-        console.log("Okay");
         localStorage.setItem("User", JSON.stringify(result.data));
         dispatch(actLoginSuccess(result.data));
         // Close Modal

@@ -31,9 +31,9 @@ export default function RoomInfo() {
 
   const isShow = () => {
     if (!startDate || !endDate) {
-      return "d-none";
+      return false;
     }
-    return "";
+    return true;
   };
 
   let bookingDate =
@@ -91,9 +91,11 @@ export default function RoomInfo() {
   const handleBooking = () => {
     if (!startDate) {
       domStartDate.current.click();
+      return;
     }
     if (!endDate) {
       domEndDate.current.click();
+      return;
     }
 
     const path = `/dat-phong?roomId=${roomData?._id}&checkIn=${formatDateDDMMYY(
@@ -226,7 +228,16 @@ export default function RoomInfo() {
                 decreaseNumber={decreaseNumber}
               />
 
-              <div className={`booking__price ${isShow()}`}>
+              <div className="my-4 text-center">
+                <button
+                  className="btn btn-primary w-100"
+                  onClick={handleBooking}
+                >
+                  Đặt phòng
+                </button>
+              </div>
+
+              <div className={`booking__price ${isShow() ? "" : "d-none"}`}>
                 <div className="initial__price mb-3 d-flex justify-content-between px-2">
                   <p className="mb-0">Giá thuê {bookingDate} đêm</p>
                   <p className="mb-0">
@@ -252,11 +263,6 @@ export default function RoomInfo() {
                       Number(bookingDate) * Number(roomData?.price) * 1.1
                     ) + "đ"}
                   </p>
-                </div>
-                <div className="mt-5 text-center">
-                  <button className="btn btn-primary" onClick={handleBooking}>
-                    Đặt phòng
-                  </button>
                 </div>
               </div>
             </div>

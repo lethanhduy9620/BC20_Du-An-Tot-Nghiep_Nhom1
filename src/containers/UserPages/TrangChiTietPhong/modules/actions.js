@@ -14,7 +14,6 @@ export const actFetchRoomDetail = (roomID) => {
       })
       .catch((error) => {
         dispatch(actRequestRoomDetailFail(error));
-        // console.log(error);
       });
   };
 };

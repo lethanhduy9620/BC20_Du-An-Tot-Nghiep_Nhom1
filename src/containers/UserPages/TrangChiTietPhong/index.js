@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import Navbar from "./../TrangDanhSachPhong/_components/Navbar_DSPhong";
 import RoomDetail from "./_components/RoomDetail";
 import "./style_ChiTietPhong.css";
@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { actFetchRoomDetail } from "./modules/actions";
 import { actFetchRoomReview } from "./_components/RoomReview/modules/actions";
+import Footer from "./../TrangHome/_components/Footer/index";
+import Loader from "./../components/Loader/Loader";
 
 export default function TrangChiTietPhong() {
   const dispatch = useDispatch();
@@ -18,7 +20,7 @@ export default function TrangChiTietPhong() {
     dispatch(actFetchRoomReview(ROOM_ID));
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loader />;
   return (
     <section id="roomDetailPage">
       <header>
@@ -27,6 +29,8 @@ export default function TrangChiTietPhong() {
 
       {/* Body */}
       <RoomDetail />
+
+      <Footer />
     </section>
   );
 }

@@ -6,21 +6,17 @@ export const actBookingRoom = (ticketInfo) => {
   return (dispatch) => {
     dispatch(actRequestRoomBooking());
 
-    console.log(ticketInfo);
-
     // Call API
     api
       .post(`rooms/booking`, ticketInfo)
       .then((result) => {
         dispatch(actRequestRoomBookingSuccess(result.data));
-        console.log(result.data);
 
         // Redirect to Trang Dat Phong Thanh Cong
         window.location.replace("/dat-phong-thanh-cong");
       })
       .catch((error) => {
         dispatch(actRequestRoomBookingFail(error));
-        console.log(error);
       });
   };
 };

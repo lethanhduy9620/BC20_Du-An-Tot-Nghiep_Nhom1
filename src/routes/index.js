@@ -1,41 +1,42 @@
-import TrangHome from "../containers/UserPages/TrangHome";
-import TrangDanhSachPhong from "../containers/UserPages/TrangDanhSachPhong";
-import TrangChiTietPhong from "../containers/UserPages/TrangChiTietPhong";
-import TrangDatPhong from "../containers/UserPages/TrangDatPhong";
+import { lazy } from "react";
 import { Route } from "react-router";
-import TrangDatPhongThanhCong from "../containers/UserPages/TrangDatPhong/DatPhongThanhCong";
-import TrangDatPhongLoi from "../containers/UserPages/TrangDatPhong/DatPhongLoi";
 
 const routesHome = [
+  // Trang Home
   {
     exact: true,
     path: "/",
-    component: TrangHome,
+    component: lazy(() => import("../containers/UserPages/TrangHome")),
   },
+
+  // Trang Danh Sach Phong
   {
     exact: false,
     path: "/danh-sach-phong/:locationID",
-    component: TrangDanhSachPhong,
+    component: lazy(() => import("../containers/UserPages/TrangDanhSachPhong")),
   },
+
+  // Trang Chi tiet phong
   {
     exact: false,
     path: "/chi-tiet-phong/:id",
-    component: TrangChiTietPhong,
+    component: lazy(() => import("../containers/UserPages/TrangChiTietPhong")),
   },
+
+  // Trang Dat phong
   {
     exact: false,
     path: "/dat-phong",
-    component: TrangDatPhong,
+    component: lazy(() => import("../containers/UserPages/TrangDatPhong")),
   },
+
+  // Trang Dat phong thanh cong
   {
     exact: true,
     path: "/dat-phong-thanh-cong",
-    component: TrangDatPhongThanhCong,
-  },
-  {
-    exact: true,
-    path: "/dat-phong-loi",
-    component: TrangDatPhongLoi,
+    component: lazy(() =>
+      import("../containers/UserPages/TrangDatPhongThanhCong")
+    ),
   },
 ];
 
@@ -47,7 +48,7 @@ const renderRoutesHome = () => {
         exact={route.exact}
         path={route.path}
         component={route.component}
-      ></Route>
+      />
     );
   });
 };

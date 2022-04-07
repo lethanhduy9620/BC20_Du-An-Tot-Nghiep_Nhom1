@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import LocationIcon from "../../TrangChiTietPhong/_components/LocationIcon";
 import CalendarIcon from "../../components/Icons/CalendarIcon";
 import SmallPersonIcon from "../../components/Icons/SmallPersonIcon";
@@ -49,7 +48,6 @@ export default function BookingInfo() {
     );
   };
 
-  // Nhớ format cái này thành một thư viện riêng
   const formatPrice = (number) => new Intl.NumberFormat().format(number);
 
   const handleBookingRoom = () => {
@@ -68,14 +66,14 @@ export default function BookingInfo() {
           <div className="main__title">
             <h3 className="mb-0">Thông tin đặt phòng</h3>
           </div>
-          <div class="guest__info row flex-column no-gutters pb-4">
+          <div className="guest__info row flex-column no-gutters pb-4">
             <h5 className="col-12 mb-0 pb-3">Số khách</h5>
             <div className="col-6">
               {Number(numberAdult) + Number(numberChild)} khách{" "}
               {numberInfant > 0 && `, ${numberInfant} trẻ sơ sinh`}
             </div>
           </div>
-          <div class="date__info row no-gutters pb-4">
+          <div className="date__info row no-gutters pb-4">
             <h5 className="col-12 mb-0 pb-3">Thời gian</h5>
             <div className="date__container col-6">
               <div className="date__content mr-3">
@@ -112,11 +110,13 @@ export default function BookingInfo() {
 
           <hr />
 
-          {/* Nếu chưa đăng nhập tài khoản */}
+          {/* Hasn't logined */}
           {!localStorage.getItem("User") && <LogInComp />}
 
-          {/* Nếu đã đăng nhập tài khoản */}
-          <div className={`${localStorage.getItem("User") ? "" : "d-none"}`}>
+          {/* Already login  */}
+          <div
+            className={`${localStorage.getItem("User") ? "" : "d-none"} mb-5`}
+          >
             <button
               type="button"
               className="btn btn-primary px-5 py-3"
@@ -147,7 +147,7 @@ export default function BookingInfo() {
                 )}
               </div>
               <div className="col-4">
-                <img src={roomData?.image} />
+                <img src={roomData?.image} alt="#" />
               </div>
             </div>
             <hr />

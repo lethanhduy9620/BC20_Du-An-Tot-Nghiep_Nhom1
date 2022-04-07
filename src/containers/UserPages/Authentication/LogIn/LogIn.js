@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-
 import { useDispatch } from "react-redux";
 import { actLogIn } from "./modules/action";
 export default function LogIn(props) {
   const dispatch = useDispatch();
   const [state, setState] = useState({
-    email: "kha9x0159@gmail.com",
-    password: "123456",
+    email: "",
+    password: "",
   });
   const handleOnChange = (event) => {
     const { name, value } = event.target;

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment } from "react";
 
 export default function GuestInput(props) {
   const {
@@ -95,7 +95,7 @@ export default function GuestInput(props) {
               <div className="item__quantity min__width--40 d-flex justify-content-between align-items-center">
                 <button
                   type="button"
-                  className="btn btn-info"
+                  className="btn btn-light"
                   disabled={isDisabled("adult", "bottom")}
                   onClick={() => {
                     decreaseNumber("adult");
@@ -106,7 +106,7 @@ export default function GuestInput(props) {
                 <span>{adultNumber}</span>
                 <button
                   type="button"
-                  className="btn btn-info"
+                  className="btn btn-light"
                   disabled={isDisabled("adult", "upper")}
                   onClick={() => {
                     increaseNumber("adult");
@@ -129,7 +129,7 @@ export default function GuestInput(props) {
               <div className="item__quantity min__width--40 d-flex justify-content-between align-items-center">
                 <button
                   type="button"
-                  className="btn btn-info"
+                  className="btn btn-light"
                   disabled={isDisabled("child", "bottom")}
                   onClick={() => {
                     decreaseNumber("child");
@@ -140,7 +140,7 @@ export default function GuestInput(props) {
                 <span>{childNumber}</span>
                 <button
                   type="button"
-                  className="btn btn-info"
+                  className="btn btn-light"
                   disabled={isDisabled("child", "upper")}
                   onClick={() => {
                     increaseNumber("child");
@@ -163,7 +163,7 @@ export default function GuestInput(props) {
               <div className="item__quantity min__width--40 d-flex justify-content-between align-items-center">
                 <button
                   type="button"
-                  className="btn btn-info"
+                  className="btn btn-light"
                   disabled={isDisabled("infant", "bottom")}
                   onClick={() => {
                     decreaseNumber("infant");
@@ -174,7 +174,7 @@ export default function GuestInput(props) {
                 <span>{infantNumber}</span>
                 <button
                   type="button"
-                  className="btn btn-info"
+                  className="btn btn-light"
                   disabled={isDisabled("infant", "upper")}
                   onClick={() => {
                     increaseNumber("infant");

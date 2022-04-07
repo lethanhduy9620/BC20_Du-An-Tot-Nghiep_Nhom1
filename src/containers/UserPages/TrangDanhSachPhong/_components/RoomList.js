@@ -3,7 +3,10 @@ import RoomCard from "./RoomCard";
 
 export default function RoomList(props) {
   const roomList = props.roomList;
-  const locationName = roomList?.[0]?.locationId?.province;
+  let locationName = roomList?.[0]?.locationId?.province;
+  if (!locationName) {
+    locationName = "đây";
+  }
 
   return (
     <div className="roomList__container container-fluid px-2rem">

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   actAddFilterRoomList,
   actRemoveFilterRoomList,
@@ -29,7 +29,7 @@ export default function Filters() {
 
   const handleOnClick = (id) => {
     const index = _findIndex(id);
-    if (index != -1) {
+    if (index !== -1) {
       let newState = { ...state };
       newState.conditionList[index].isSelected =
         !newState.conditionList[index].isSelected;
@@ -47,7 +47,7 @@ export default function Filters() {
       return (
         <button
           ref={buttonRef.current[index]}
-          key={condition.id}
+          key={condition.id + "button"}
           className={`btn btn__filter shadow-none ${condition.responsiveClass}`}
           type="button"
           data-toggle="button"
@@ -69,7 +69,7 @@ export default function Filters() {
   const renderCheckBoxFilterList = () => {
     return state.conditionList?.map((condition, index) => {
       return (
-        <div className="form-check my-3" id={"checkBox" + condition.id}>
+        <div className="form-check my-3" key={"checkBox" + condition.id}>
           <input
             className="form-check-input"
             type="checkbox"
@@ -104,7 +104,7 @@ export default function Filters() {
             <option>Giá tăng dần</option>
             <option>Giá giảm dần</option>
           </select>
-          <i class="fa fa-angle-down" />
+          <i className="fa fa-angle-down" />
         </div>
 
         <div className="vertical__line d-none d-sm-block mx-3" />
@@ -125,48 +125,50 @@ export default function Filters() {
 
           {/* Modal */}
           <div
-            class="modal fade"
+            className="modal fade"
             id="filterModal"
             data-backdrop="static"
             data-keyboard="false"
-            tabIndex="-1"
+            tabIndex={-1}
             aria-labelledby="filterModalLabel"
             aria-hidden="true"
           >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header align-items-center">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header align-items-center">
                   <h5
-                    class="modal-title text-center flex-fill"
+                    className="modal-title text-center flex-fill"
                     id="filterModalLabel"
                   >
                     Filter
                   </h5>
+
                   <button
                     type="button"
-                    class="close ml-0"
+                    className="close ml-0"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                <div class="modal-body">
+                <div className="modal-body">
                   <form className="row row-cols-2 row-cols-sm-3 no-gutters justify-content-between align-items-center">
                     {renderCheckBoxFilterList()}
                   </form>
                 </div>
-                <div class="modal-footer">
+                <div className="modal-footer justify-content-between">
                   <button
                     type="button"
-                    class="btn btn-second"
+                    className="btn btn-light"
                     onClick={handleOnDeleteCondition}
                   >
                     Xóa
                   </button>
+
                   <button
                     type="button"
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     data-dismiss="modal"
                   >
                     Áp dụng

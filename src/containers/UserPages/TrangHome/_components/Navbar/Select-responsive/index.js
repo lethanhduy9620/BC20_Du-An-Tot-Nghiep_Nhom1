@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import DehazeIcon from "@mui/icons-material/Dehaze";
 import SearchIcon from "@mui/icons-material/Search";
 import actSelect from "./modules/action";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 import { Link } from "react-router-dom";
-import { lineHeight } from "@mui/system";
+
 export default function SelectResponsive() {
   const data = useSelector((state) => state.selectListReducer.data);
   const dispatch = useDispatch();

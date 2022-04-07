@@ -1,0 +1,14 @@
+/* * Trang Page Not Found */
+#pageNotFound {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+#pageNotFound .page__container {
+  background-color: #f4f4f4;
+  height: 100%;
+}
+
+#pageNotFound .page__container > div {
+  padding: 15% 0;
+}

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { getMonth_lib, getFullYear_lib } from "./lib/LibDate";
 
@@ -16,7 +16,7 @@ export default function RoomReview() {
           <div className="review__header d-flex align-items-center">
             {/* User Avatar */}
             <div className="mr-3 user__avatar">
-              <img src={review.userId?.avatar}></img>
+              <img src={review.userId?.avatar} alt="#1"/>
             </div>
 
             {/* Name */}
@@ -50,7 +50,7 @@ export default function RoomReview() {
 
   return (
     <Fragment>
-      <div className="roomReview__container">
+      <div className="roomReview__container mb-5">
         <hr className="mt-0"></hr>
         <h5 className="title">Đánh giá</h5>
         <div className="review__container row row-cols-2 no-gutters">

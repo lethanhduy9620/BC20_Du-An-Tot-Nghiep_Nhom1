@@ -17,7 +17,6 @@ const logInReducer = (state = initalState, action) => {
       state.loading = false;
       state.data = action.payload;
       state.error = null;
-      console.log(state.data);
       return { ...state };
     }
     case ActionType.LOGIN_FAILED: {

@@ -7,10 +7,10 @@ export default function Carousel() {
         style={{ backgroundImage: "url(./img/image2.png)" }}
         className="bg-carousel"
       >
-          <div className="carousel-content">
-            <h1>Not sure where to go? Perfect.</h1>
-            <button className="btn btn-success">I'm flexible</button>
-          </div>
+        <div className="carousel-content">
+          <h1>Not sure where to go? Perfect.</h1>
+          <button className="btn btn-primary">I'm flexible</button>
+        </div>
       </div>
     </div>
   );
